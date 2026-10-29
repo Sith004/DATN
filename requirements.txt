@@ -1,3 +1,4 @@
+# Core Data Science & Machine Learning
 numpy>=1.24.0
 pandas>=2.0.0
 matplotlib>=3.7.0
@@ -6,5 +7,17 @@ scikit-learn>=1.2.0
 xgboost>=1.7.0
 shap>=0.41.0
 joblib>=1.2.0
+
+# Streamlit Decision Support System (DSS)
 streamlit>=1.28.0
 plotly>=5.15.0
+
+# PostgreSQL Database Integration
+psycopg2-binary>=2.9.0
+python-dotenv>=1.0.0
+
+# FastAPI REST Backend for Mobile App
+fastapi>=0.115.0
+uvicorn>=0.30.0
+pydantic>=2.9.0
+httpx>=0.27.0
