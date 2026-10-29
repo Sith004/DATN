@@ -25,6 +25,7 @@
 | **DB Degradation**| Dự báo khi CSDL mất kết nối | Vẫn hoàn tất suy luận, cờ `persisted: false` | **PASS** | Cơ chế Graceful Degradation đảm bảo API không bị crash. |
 | **Streamlit** | Chạy kiểm tra hồi quy trên Streamlit `app.py` | Toàn bộ logic giao diện Streamlit nguyên vẹn | **PASS** | Không sửa đổi bất kỳ dòng mã nào trong `app.py`. |
 | **Mobile Widget** | Khởi chạy Widget Test (`mobile/test/widget_test.dart`) | Render Dashboard, tiêu đề và thông tin sinh viên | **PASS** | `All tests passed! (1/1 passed)` trong Flutter test runner. |
+| **Physical Device** | Cài đặt & Chạy trên thiết bị thật (PLG110) | Cài đặt APK qua ADB, kết nối thành công FastAPI | **PASS** | Thiết bị `PLG110` (Android 17) cài đặt thành công APK, kết nối live qua Wi-Fi `192.168.100.7` và cổng forward USB; truy vấn `/health` (HTTP 200) và `/api/v1/predictions` (HTTP 200). |
 | **Dự án STIX** | Bảo toàn dự án `DT130-STIX-TAXII` | Không thay đổi file, container, volume | **PASS** | Container và dữ liệu trên máy chủ Ubuntu hoàn toàn nguyên vẹn. |
 
 ---
