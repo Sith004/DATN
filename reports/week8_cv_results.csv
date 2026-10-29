@@ -1,0 +1,4 @@
+model,best_cv_pr_auc,std
+Random Forest (Default) Tuned,0.5656,0.0088
+Random Forest (Balanced) Tuned,0.5627,0.0096
+XGBoost Tuned,0.5646,0.0122

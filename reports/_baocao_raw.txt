@@ -1,0 +1,260 @@
+[000] [LO-normal] TRƯỜNG ĐẠI HỌC TÀI NGUYÊN VÀ MÔI TRƯỜNG TP.HCM
+[001] [LO-normal] KHOA CÔNG NGHỆ THÔNG TIN
+[010] [LO-normal] ĐỒ ÁN TỐT NGHIỆP
+[011] [LO-normal] NGÀNH CÔNG NGHỆ THÔNG TIN
+[014] [LO-normal] NGHIÊN CỨU XÂY DỰNG MÔ HÌNH MACHINE LEARNING TRONG ĐÁNH GIÁ VÀ DỰ BÁO RỦI RO TÍN DỤNG KHÁCH HÀNG
+[018] [LO-normal] Giảng viên hướng dẫn: 	TS. Dương Thị Thúy Nga
+[019] [LO-normal] Sinh viên thực hiện:    	Nguyễn Trọng Thể
+[020] [LO-normal] Mã số sinh viên: 	1150080117
+[021] [LO-normal] Lớp:    	THMT
+[022] [LO-normal] Khoá:    	2022 - 2026
+[027] [LO-normal] TP. Hồ Chí Minh, tháng 10 năm 2026
+[030] [LO-normal] TRƯỜNG ĐẠI HỌC TÀI NGUYÊN VÀ MÔI TRƯỜNG TP.HCM
+[031] [LO-normal] KHOA CÔNG NGHỆ THÔNG TIN
+[040] [LO-normal] ĐỒ ÁN TỐT NGHIỆP
+[041] [LO-normal] NGÀNH CÔNG NGHỆ THÔNG TIN
+[044] [LO-normal] NGHIÊN CỨU XÂY DỰNG MÔ HÌNH MACHINE LEARNING TRONG ĐÁNH GIÁ VÀ DỰ BÁO RỦI RO TÍN DỤNG KHÁCH HÀNG
+[048] [LO-normal] Giảng viên hướng dẫn: 	TS. Dương Thị Thúy Nga
+[049] [LO-normal] Sinh viên thực hiện:    	Nguyễn Trọng Thể
+[050] [LO-normal] Mã số sinh viên: 	1150080117
+[051] [LO-normal] Lớp:    	THMT
+[052] [LO-normal] Khoá:    	2022 - 2026
+[057] [LO-normal] TP. Hồ Chí Minh, tháng 10 năm 2026
+[059] [LO-normal] LỜI CẢM ƠN
+[061] [LO-normal] Nội dung lời cảm ơn
+[065] [LO-normal] Sinh viên thực hiện
+[069] [LO-normal] Họ và Tên
+[074] [LO-normal] ádasd
+[075] [LO-normal] LỜI CAM ĐOAN
+[077] [LO-normal] Nội dung lời cam đoan
+[082] [LO-normal] Sinh viên thực hiện
+[083] [LO-normal] (ký tên và ghi rõ họ tên)
+[086] [LO-normal] NHẬN XÉT
+[087] [LO-normal] (giảng viên hướng dẫn)
+[088] [LO-normal] ……………………………………………………………………………………………
+[089] [LO-normal] ……………………………………………………………………………………………
+[090] [LO-normal] ……………………………………………………………………………………………
+[091] [LO-normal] ……………………………………………………………………………………………
+[092] [LO-normal] ……………………………………………………………………………………………
+[093] [LO-normal] ……………………………………………………………………………………………
+[094] [LO-normal] ……………………………………………………………………………………………
+[095] [LO-normal] ……………………………………………………………………………………………
+[096] [LO-normal] ……………………………………………………………………………………………
+[097] [LO-normal] ……………………………………………………………………………………………
+[098] [LO-normal] Kết luận:  (Đồng ý hoặc Không đồng ý cho sinh viên nộp báo cáo)
+[099] [LO-normal] ……………………………………………………………………………………………
+[107] [LO-normal] NHẬN XÉT
+[108] [LO-normal] (giảng viên phản biện)
+[109] [LO-normal] ……………………………………………………………………………………………
+[110] [LO-normal] ……………………………………………………………………………………………
+[111] [LO-normal] ……………………………………………………………………………………………
+[112] [LO-normal] ……………………………………………………………………………………………
+[113] [LO-normal] ……………………………………………………………………………………………
+[114] [LO-normal] ……………………………………………………………………………………………
+[115] [LO-normal] ……………………………………………………………………………………………
+[116] [LO-normal] ……………………………………………………………………………………………
+[117] [LO-normal] ……………………………………………………………………………………………
+[118] [LO-normal] ……………………………………………………………………………………………
+[120] [LO-normal] Kết luận:  (Đồng ý hoặc Không đồng ý cho sinh viên nộp báo cáo)
+[121] [LO-normal] ……………………………………………………………………………………………
+[133] [Normal] MỤC LỤC
+[134] [toc 1] CHƯƠNG 1. TỔNG QUAN TÀI LIỆU VÀ CÁC CÔNG TRÌNH NGHIÊN CỨU LIÊN QUAN	2
+[135] [toc 2] 1.1. Tổng quan về rủi ro tín dụng và bài toán chấm điểm tín dụng	2
+[136] [toc 3] 1.1.1. Khái niệm rủi ro tín dụng (Credit Risk) và vỡ nợ (Default)	2
+[137] [toc 3] 1.1.2. Vai trò của Chấm điểm tín dụng (Credit Scoring) trong quản trị rủi ro ngân hàng	3
+[138] [toc 3] 1.1.3. Thách thức trong dự báo rủi ro tín dụng cá nhân	4
+[139] [toc 2] 1.2. Tổng quan các công trình nghiên cứu liên quan trong và ngoài nước	5
+[140] [toc 3] 1.2.1. Các công trình nghiên cứu nước ngoài	6
+[141] [toc 3] 1.2.2. Các công trình nghiên cứu trong nước (Việt Nam)	9
+[142] [toc 3] 1.2.3. Bảng so sánh và tổng hợp các công trình nghiên cứu	11
+[143] [toc 3] 1.2.4. Nhận xét tổng quan, khoảng trống nghiên cứu và lý do chọn đề tài	13
+[144] [toc 2] 1.3. Tổng quan về Machine Learning trong bài toán chấm điểm tín dụng	14
+[145] [toc 3] 1.3.1. Bài toán Phân loại nhị phân (Binary Classification)	14
+[146] [toc 3] 1.3.2. Mô hình Hồi quy Logistic (Logistic Regression - Baseline)	15
+[147] [toc 3] 1.3.3. Mô hình Cây quyết định (Decision Tree Classifier)	16
+[148] [toc 3] 1.3.4. Mô hình Rừng ngẫu nhiên (Random Forest Classifier)	17
+[149] [toc 3] 1.3.5. Mô hình XGBoost (Extreme Gradient Boosting)	17
+[150] [toc 2] 1.4. Tập dữ liệu nghiên cứu UCI Credit Card Clients	19
+[151] [toc 3] 1.4.1. Nguồn gốc và ý nghĩa tập dữ liệu nghiên cứu	19
+[152] [toc 3] 1.4.2. Mô tả chi tiết các biến dự báo và biến mục tiêu	19
+[153] [toc 2] 1.5. Trí tuệ nhân tạo có thể giải thích (Explainable AI) và phương pháp SHAP	20
+[154] [toc 3] 1.5.1. Khái niệm và sự cần thiết của Explainable AI trong lĩnh vực tài chính	20
+[155] [toc 3] 1.5.2. Nguyên lý toán học Shapley Values và kỹ thuật SHAP (Global & Local Explanations)	21
+[158] [Heading 1] CHƯƠNG 1. TỔNG QUAN TÀI LIỆU VÀ CÁC CÔNG TRÌNH NGHIÊN CỨU LIÊN QUAN
+[159] [Normal] Chương 1 trình bày nền tảng lý thuyết và tổng quan tài liệu của đề tài nghiên cứu. Trước tiên, các khái niệm cốt lõi về rủi ro tín dụng, chấm điểm tín dụng và những thách thức đặc thù trong bài toán d
+[160] [Heading 2] 1.1. Tổng quan về rủi ro tín dụng và bài toán chấm điểm tín dụng
+[161] [Heading 3] 1.1.1. Khái niệm rủi ro tín dụng (Credit Risk) và vỡ nợ (Default)
+[162] [Normal] Trong hoạt động của các tổ chức tín dụng, rủi ro tín dụng (Credit Risk) được hiểu là khả năng tổn thất tài chính phát sinh khi người vay hoặc đối tác không thực hiện đầy đủ nghĩa vụ trả nợ theo thỏa t
+[163] [Normal] Vỡ nợ (Default) là trạng thái nghiệp vụ xảy ra khi người vay không thực hiện được nghĩa vụ thanh toán trong một khoảng thời gian nhất định. Trong nhiều khung nghiệp vụ quốc tế, thông lệ thường gặp là 
+[164] [Normal] Cần phân biệt rõ hai khái niệm thường bị nhầm lẫn: rủi ro tín dụng (Credit Risk) và xác suất vỡ nợ (Probability of Default - PD). Rủi ro tín dụng là khái niệm rộng hơn, bao gồm toàn bộ nguy cơ tổn thấ
+[165] [Normal] Vai trò của dự báo khả năng vỡ nợ trong quản trị ngân hàng ngày càng trở nên thiết yếu. Một mô hình dự báo PD chính xác cho phép tổ chức tín dụng: (i) phân loại khách hàng theo mức độ rủi ro trước khi
+[166] [Heading 3] 1.1.2. Vai trò của Chấm điểm tín dụng (Credit Scoring) trong quản trị rủi ro ngân hàng
+[167] [Normal] Chấm điểm tín dụng (Credit Scoring) là hệ thống mô hình hóa định lượng nhằm chuyển đổi thông tin từ hồ sơ cá nhân, hạn mức tín dụng và lịch sử thanh toán của khách hàng thành một điểm số hoặc xác suất
+[168] [Normal] Dữ liệu đầu vào của hệ thống chấm điểm tín dụng thường bao gồm: thông tin nhân khẩu học (tuổi, giới tính, trình độ học vấn, tình trạng hôn nhân), thông tin tài chính (hạn mức tín dụng, số dư nợ, số ti
+[169] [Normal] Trong bối cảnh quản trị rủi ro ngân hàng, Credit Scoring đóng vai trò quan trọng ở nhiều khía cạnh. Thứ nhất, hệ thống này tự động hóa quá trình đánh giá, giảm đáng kể thời gian xử lý hồ sơ so với phư
+[170] [Normal] Tuy nhiên, Credit Scoring cũng có những giới hạn nhất định. Chất lượng dự báo phụ thuộc nhiều vào tính đại diện và chất lượng của dữ liệu huấn luyện. Khi cấu trúc hành vi khách hàng thay đổi theo thời
+[171] [Heading 3] 1.1.3. Thách thức trong dự báo rủi ro tín dụng cá nhân
+[172] [Normal] Bài toán dự báo rủi ro tín dụng cá nhân mang nhiều đặc điểm phức tạp đặc thù, đòi hỏi quy trình phát triển mô hình phải được thiết kế cẩn thận. Dưới đây là các thách thức chính được nhận diện trong qu
+[173] [Normal] (1) Mất cân bằng dữ liệu (Class Imbalance): Trong dữ liệu tín dụng thực tế, tỷ lệ khách hàng vỡ nợ (lớp thiểu số) thường thấp hơn đáng kể so với khách hàng bình thường (lớp đa số). Trong tập dữ liệu U
+[174] [Normal] (2) Quan hệ phi tuyến phức tạp: Mối quan hệ giữa các đặc trưng đầu vào và biến mục tiêu không nhất thiết là tuyến tính. Ví dụ, tác động của lịch sử chậm thanh toán đến xác suất vỡ nợ phụ thuộc vào tần
+[175] [Normal] (3) Dữ liệu lịch sử nhiều chiều: Bộ dữ liệu tín dụng thường chứa cả thông tin nhân khẩu học và chuỗi thời gian hành vi thanh toán nhiều tháng, tạo ra không gian đặc trưng có nhiều chiều. Việc lựa chọn
+[176] [Normal] (4) Rò rỉ dữ liệu (Data Leakage): Đây là nguy cơ nghiêm trọng trong xây dựng mô hình học máy, xảy ra khi thông tin từ tập kiểm tra (Test set) vô tình "rò rỉ" vào quá trình huấn luyện, dẫn đến kết quả 
+[177] [Normal] (5) Kỹ thuật rút trích đặc trưng (Feature Engineering): Ngoài 23 biến gốc trong tập dữ liệu, việc tính toán các chỉ số tài chính tổng hợp như Tỷ lệ sử dụng hạn mức tín dụng (Credit Utilization Ratio),
+[178] [Normal] (6) Khả năng giải thích mô hình (Model Interpretability): Các mô hình Ensemble phức tạp như XGBoost hay Random Forest cho hiệu năng dự báo cao nhưng khó diễn giải cơ chế hoạt động. Trong lĩnh vực tài 
+[179] [Normal] (7) Đánh đổi nghiệp vụ giữa False Positive và False Negative: Trong bài toán phát hiện vỡ nợ, hai loại lỗi phân loại có hậu quả khác nhau về mặt nghiệp vụ. False Negative (bỏ sót khách hàng thực sự vỡ
+[180] [Normal] (8) Yêu cầu đánh giá bằng nhiều chỉ số: Chỉ dựa vào Accuracy để đánh giá mô hình trên dữ liệu mất cân bằng có thể gây hiểu nhầm - một mô hình luôn dự đoán "không vỡ nợ" đã đạt Accuracy ~77,88% mà khôn
+[181] [Heading 2] 1.2. Tổng quan các công trình nghiên cứu liên quan trong và ngoài nước
+[182] [Normal] Nhằm xác định rõ cơ sở thực tiễn, tiến trình phát triển công nghệ và các khoảng trống nghiên cứu còn tồn tại, tác giả đã tiến hành khảo sát, phân tích chuyên sâu các công trình nghiên cứu khoa học tiê
+[183] [Heading 3] 1.2.1. Các công trình nghiên cứu nước ngoài
+[184] [Normal] a) Yeh & Lien (2009) - So sánh các kỹ thuật Khai phá Dữ liệu trong dự báo xác suất vỡ nợ khách hàng thẻ tín dụng
+[185] [Normal] I-Cheng Yeh và Che-hui Lien (2009) công bố công trình "The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients" trên tạp chí Expert Syste
+[186] [Normal] Bối cảnh và dữ liệu: Nghiên cứu được thực hiện trong giai đoạn khủng hoảng tín dụng tại Đài Loan, sử dụng tập dữ liệu gồm 30.000 bản ghi khách hàng thẻ tín dụng thu thập tại một ngân hàng thương mại, 
+[187] [Normal] Phương pháp và kết quả: Các thuật toán được so sánh bao gồm Mạng Nơ-ron nhân tạo (ANN), Cây quyết định (Decision Trees), Naive Bayes, K-Nearest Neighbors (K-NN), Hồi quy Logistic và Discriminant Analy
+[188] [Normal] Ưu điểm: Công trình có đóng góp kép: vừa cung cấp tập dữ liệu thực tế công khai quy mô lớn (30.000 mẫu) với cấu trúc đặc trưng tài chính phong phú, vừa tiến hành so sánh bài bản giữa các phương pháp h
+[189] [Normal] Hạn chế: Nghiên cứu chưa khảo sát các thuật toán Gradient Boosting hiện đại như XGBoost hay LightGBM. Công trình cũng chưa áp dụng các kỹ thuật xử lý mất cân bằng lớp (Class Imbalance) chuyên sâu. Mô 
+[190] [Normal] Đóng góp đối với đề tài: Công trình đặt ra nhu cầu nâng cao hiệu năng bằng các thuật toán Ensemble tiên tiến (XGBoost, Random Forest), kết hợp xử lý mất cân bằng, giải thích mô hình bằng SHAP và phát 
+[191] [Normal] b) Ala'raj & Abbod (2016) - Khung phân loại đồng thuận kết hợp trong chấm điểm tín dụng
+[192] [Normal] Suleiman Ala'raj và Maysam F. Abbod (2016) công bố công trình "A new consensus classification framework for credit scoring" trên tạp chí Knowledge-Based Systems (Elsevier), Vol. 92, tr. 83-95. Công tr
+[193] [Normal] Bối cảnh và dữ liệu: Nghiên cứu sử dụng năm tập dữ liệu tín dụng quốc tế bao gồm German Credit, Australian Credit và UCI Credit Card Clients, nhằm đảm bảo tính tổng quát của khung phương pháp được đề 
+[194] [Normal] Phương pháp và kết quả: Khung đồng thuận kết hợp Ensemble Learning, Thuật toán di truyền (Genetic Algorithm) để lựa chọn đặc trưng, Support Vector Machines (SVM), Decision Tree và Logistic Regression.
+[195] [Normal] Ưu điểm và hạn chế: Đóng góp quy trình kết hợp mô hình phân tầng khoa học, đánh giá trên nhiều tập dữ liệu đa dạng. Tuy nhiên, chi phí tính toán cực kỳ lớn; cấu trúc mô hình phức tạp khó triển khai th
+[196] [Normal] c) Shen et al. (2019) - Mô hình Ensemble tối ưu bầy đàn trong chấm điểm tín dụng
+[197] [Normal] Fenyu Shen, Xiaoqian Zhao, Zhiwei Li, Kai Li và Gang Kou (2019) công bố công trình "A novel ensemble classification model based on neural networks and particle swarm optimization for credit scoring" t
+[198] [Normal] Bối cảnh và dữ liệu: Nghiên cứu hướng đến tối ưu hóa mô hình chấm điểm tín dụng cá nhân và cho vay ngang hàng (P2P Lending), sử dụng tập dữ liệu UCI Credit Card Clients và tập dữ liệu P2P Lending để k
+[199] [Normal] Phương pháp và kết quả: Kết hợp Neural Networks, Particle Swarm Optimization (PSO), Random Forest và XGBoost. Kết quả cải thiện rõ rệt F1-Score và ROC-AUC, vượt trội hơn các mô hình học máy đơn lẻ tro
+[200] [Normal] Ưu điểm và hạn chế: Sự kết hợp giữa Neural Network và PSO tạo nên mô hình có độ phức tạp tính toán rất cao (mang đặc tính "hộp đen"); chưa phân tích đánh đổi chi phí nghiệp vụ False Positive/False Neg
+[201] [Normal] d) Bussmann et al. (2021) - Ứng dụng Explainable AI (SHAP) trong Quản trị Rủi ro Tín dụng
+[202] [Normal] Niklas Bussmann, Paolo Giudici, Dimitri Marinelli và Jochen Papenbrock (2021) công bố công trình "Explainable AI in credit risk management" trên tạp chí Frontiers in Artificial Intelligence, Vol. 4, A
+[203] [Normal] Bối cảnh và dữ liệu: Nghiên cứu được thúc đẩy bởi yêu cầu minh bạch theo quy định ngân hàng Châu Âu (GDPR/Basel) khi ứng dụng AI trong đánh giá tín dụng doanh nghiệp và cá nhân. Dữ liệu sử dụng bao gồ
+[204] [Normal] Phương pháp và kết quả: Ứng dụng phương pháp SHAP (SHapley Additive exPlanations) kết hợp với XGBoost và Random Forest, bổ sung Shapley Lorenz Curves để trực quan hóa. Kết quả chứng minh SHAP giúp min
+[205] [Normal] Ưu điểm và hạn chế: Góp phần giảm thiểu rào cản "hộp đen" của các mô hình Machine Learning phức tạp trong quản trị rủi ro tài chính. Tuy nhiên, nghiên cứu tập trung vào mặt lý thuyết và phương pháp lu
+[206] [Normal] e) Tripathi et al. (2020) - Mô hình chấm điểm tín dụng kết hợp Lọc đặc trưng và Ensemble Learning
+[207] [Normal] Deepak Tripathi, Damodar Reddy Edla và Venkatanareshbabu Kupagal (2020) công bố công trình "Credit scoring model using hybrid feature selection and ensemble learning techniques" trên tạp chí Computati
+[208] [Normal] Bối cảnh và dữ liệu: Bài toán chấm điểm tín dụng cá nhân và lọc đặc trưng dư thừa, sử dụng German Credit, Australian Credit và UCI Credit Card làm tập dữ liệu kiểm thử.
+[209] [Normal] Phương pháp và kết quả: Kết hợp Chi-square và Information Gain để lọc đặc trưng, sau đó áp dụng Random Forest, XGBoost, Bagging và Boosting. Kết quả tăng chỉ số Precision và Recall, loại bỏ các đặc tr
+[210] [Normal] Ưu điểm và hạn chế: Chưa phân tích kỹ nguy cơ Data Leakage trong quá trình trích rút đặc trưng; chưa có công cụ giải thích trực quan. Tồn tại này đặt ra yêu cầu kiểm soát nghiêm ngặt Data Leakage khi 
+[211] [Heading 3] 1.2.2. Các công trình nghiên cứu trong nước (Việt Nam)
+[212] [Normal] a) Nguyễn Thị Cẩm Nhung & Đinh Ngạn (2019) - Mô hình chấm điểm tín dụng cá nhân tại Ngân hàng Thương mại Việt Nam
+[213] [Normal] Nguyễn Thị Cẩm Nhung và Đinh Ngạn (2019) công bố công trình "Xây dựng mô hình chấm điểm tín dụng cá nhân tại Ngân hàng Thương mại Cổ phần Ngoại thương Việt Nam" trên Tạp chí Khoa học & Đào tạo Ngân hà
+[214] [Normal] Bối cảnh và dữ liệu: Đánh giá rủi ro vỡ nợ của khách hàng vay tiêu dùng cá nhân tại Ngân hàng Thương mại Việt Nam (Vietcombank), sử dụng dữ liệu thực tế 5.000 khoản vay cá nhân.
+[215] [Normal] Phương pháp và kết quả: Áp dụng Hồi quy Logistic (Logistic Regression), biến đổi WoE (Weight of Evidence) và Chỉ số IV (Information Value) để xây dựng bảng điểm tín dụng (Scorecard). Kết quả đạt độ ch
+[216] [Normal] Ưu điểm và hạn chế: Tính thực tiễn cao, bám sát nghiệp vụ phê duyệt tín dụng tại ngân hàng Việt Nam. Tuy nhiên, chỉ áp dụng mô hình Logistic Regression tuyến tính truyền thống; chưa thử nghiệm các thu
+[217] [Normal] b) Lê Văn Thắng & Nguyễn Hoài Nam (2020) - Thuật toán học máy trong dự báo rủi ro vỡ nợ khách hàng cá nhân
+[218] [Normal] Lê Văn Thắng và Nguyễn Hoài Nam (2020) công bố công trình "Ứng dụng các thuật toán học máy trong dự báo rủi ro vỡ nợ của khách hàng cá nhân" trên Tạp chí Kinh tế và Phát triển, Số 278, tr. 32-41. Công
+[219] [Normal] Bối cảnh và dữ liệu: Dự báo rủi ro tín dụng thẻ và cho vay tiêu dùng tại các tổ chức tài chính Việt Nam, sử dụng dữ liệu thực nghiệm 10.000 khách hàng cá nhân.
+[220] [Normal] Phương pháp và kết quả: So sánh Decision Tree, Random Forest, Support Vector Machines (SVM) và Logistic Regression. Mô hình Random Forest đạt Accuracy 82,3% và ROC-AUC 0,81, vượt trội so với Hồi quy L
+[221] [Normal] Ưu điểm và hạn chế: Bước đầu đưa Ensemble Learning vào bài toán tín dụng Việt Nam. Tuy nhiên, chưa thực hiện Feature Engineering chuyên sâu về tỷ lệ sử dụng hạn mức; chưa khảo sát thuật toán XGBoost; 
+[222] [Normal] c) Trần Thị Thanh Thủy (2021) - Khảo sát XGBoost và Random Forest trong đánh giá rủi ro tín dụng ngân hàng
+[223] [Normal] Trần Thị Thanh Thủy (2021) công bố công trình "Nghiên cứu ứng dụng thuật toán XGBoost và Random Forest trong đánh giá rủi ro tín dụng tại các ngân hàng thương mại Việt Nam" trên Tạp chí Ngân hàng (Ngâ
+[224] [Normal] Bối cảnh và dữ liệu: Đánh giá rủi ro vỡ nợ khách hàng thẻ tín dụng và cho vay tiêu dùng, sử dụng tập dữ liệu tín dụng khách hàng cá nhân bao gồm tập UCI Credit Card và dữ liệu thực nghiệm tại Việt Nam
+[225] [Normal] Phương pháp và kết quả: So sánh Random Forest, XGBoost, áp dụng Cross-Validation và Grid Search Tuning. XGBoost đạt ROC-AUC 0,825, cải thiện đáng kể so với Random Forest và Logistic Regression; đề xuấ
+[226] [Normal] Ưu điểm và hạn chế: Đưa thuật toán XGBoost hiện đại vào nghiên cứu rủi ro tín dụng; quy trình tối ưu siêu tham số bài bản. Tuy nhiên, mô hình XGBoost vẫn coi như "hộp đen", chưa áp dụng Explainable AI
+[227] [Normal] d) Phạm Long & Nguyễn Thị Hoàng Yến (2022) - Xử lý mất cân bằng dữ liệu trong chấm điểm tín dụng cá nhân
+[228] [Normal] Phạm Long và Nguyễn Thị Hoàng Yến (2022) công bố công trình "Đánh giá hiệu quả của các mô hình Học máy có giám sát trong chấm điểm tín dụng cá nhân" trên Tạp chí Nghiên cứu Kinh tế và Kinh doanh Châu 
+[229] [Normal] Bối cảnh và dữ liệu: Đánh giá khả năng trả nợ của khách hàng vay tiêu dùng cá nhân, sử dụng dữ liệu tín dụng cá nhân thực nghiệm tại Việt Nam (15.000 bản ghi).
+[230] [Normal] Phương pháp và kết quả: Áp dụng Logistic Regression, Random Forest, XGBoost, SMOTE và Threshold Tuning. Áp dụng SMOTE giúp nâng chỉ số Recall của mô hình XGBoost từ 54% lên 72%, giảm rủi ro bỏ sót khá
+[231] [Normal] Ưu điểm và hạn chế: Đi sâu xử lý vấn đề mất cân bằng lớp (Class Imbalance) - đặc thù quan trọng của dữ liệu tín dụng. Tuy nhiên, chưa phân tích kỹ nguy cơ Data Leakage trong quá trình áp dụng SMOTE; c
+[232] [Heading 3] 1.2.3. Bảng so sánh và tổng hợp các công trình nghiên cứu
+[233] [Normal] Để giúp Giảng viên và Hội đồng đánh giá có cái nhìn tổng quan, hệ thống về các nghiên cứu đã thực hiện, tác giả tổng hợp đặc điểm kỹ thuật của các công trình trong và ngoài nước trong Bảng 1.1 và Bảng
+[234] [Normal] Bảng 1.1. Tổng hợp so sánh các công trình nghiên cứu ngoài nước tiêu biểu
+[236] [Normal] Bảng 1.2. Tổng hợp so sánh các công trình nghiên cứu trong nước tiêu biểu
+[238] [Heading 3] 1.2.4. Nhận xét tổng quan, khoảng trống nghiên cứu và lý do chọn đề tài
+[239] [Normal] Từ việc phân tích, đối chiếu toàn diện chín công trình nghiên cứu tiêu biểu trong và ngoài nước ở trên, tác giả rút ra các nhận xét tổng hợp về mặt phương pháp luận và các khoảng trống nghiên cứu (Res
+[240] [Normal] (1) Về kiểm soát rò rỉ dữ liệu (Data Leakage): Trong phạm vi các công trình được khảo sát, một số nghiên cứu như Tripathi et al. (2020) và Phạm Long & Nguyễn Thị Hoàng Yến (2022), mặc dù đã áp dụng kỹ
+[241] [Normal] (2) Về phương pháp Machine Learning và đánh giá đa chỉ số: Qua các tài liệu được tổng hợp tại Việt Nam, nhiều nghiên cứu chủ yếu sử dụng Logistic Regression hoặc Random Forest đơn lẻ (Nguyễn Thị Cẩm N
+[242] [Normal] (3) Về tính giải thích được của mô hình (Explainable AI - XAI): Qua các công trình được khảo sát, các nghiên cứu ứng dụng mô hình học máy phức tạp (Shen et al., 2019; Trần Thị Thanh Thủy, 2021) thường
+[243] [Normal] (4) Về khả năng đóng gói ứng dụng (Software Prototype): Trong phạm vi khảo sát, phần lớn các công trình chủ yếu tập trung vào phân tích thực nghiệm trên môi trường Notebook. Trong phạm vi tài liệu tha
+[244] [Normal] Trên cơ sở phân tích trên, lý do thực hiện đề tài được xác định như sau: Trong phạm vi tài liệu tham khảo, Machine Learning thể hiện tiềm năng vượt trội trong bài toán đánh giá rủi ro tín dụng. Tuy nh
+[245] [Heading 2] 1.3. Tổng quan về Machine Learning trong bài toán chấm điểm tín dụng
+[246] [Heading 3] 1.3.1. Bài toán Phân loại nhị phân (Binary Classification)
+[247] [Normal] Học máy có giám sát (Supervised Machine Learning) là phương pháp huấn luyện mô hình từ tập dữ liệu có nhãn, trong đó mỗi mẫu dữ liệu X đã được gắn nhãn phân loại y. Mục tiêu là học ánh xạ f: X → y sao
+[248] [Normal] Phân loại nhị phân (Binary Classification) là trường hợp đặc biệt của bài toán phân loại khi biến mục tiêu y chỉ nhận hai giá trị phân biệt. Trong bài toán đánh giá rủi ro tín dụng của đề tài này, bài
+[249] [Normal] y ∈ {0, 1}
+[250] [Normal] Trong đó:
+[251] [Normal] y = 0:  Khách hàng không vỡ nợ trong kỳ tiếp theo
+[252] [Normal] y = 1:  Khách hàng vỡ nợ trong kỳ tiếp theo
+[253] [Normal] Đầu vào của mô hình là véc-tơ đặc trưng X = (x₁, x₂, ..., xₚ) biểu diễn thông tin nhân khẩu học, hạn mức tín dụng và lịch sử thanh toán của khách hàng. Mô hình học f(X) sẽ ước lượng xác suất P(Y=1|X) 
+[254] [Heading 3] 1.3.2. Mô hình Hồi quy Logistic (Logistic Regression - Baseline)
+[255] [Normal] Hồi quy Logistic (Logistic Regression) là mô hình phân loại tuyến tính kinh điển, được sử dụng rộng rãi trong lĩnh vực tài chính tín dụng nhờ tính đơn giản, nhanh và dễ giải thích. Mặc dù có tên gọi l
+[256] [Normal] Nguyên lý hoạt động: Mô hình tổ hợp tuyến tính các đặc trưng đầu vào thành giá trị z (log-odds), sau đó áp dụng hàm sigmoid để chuyển đổi z thành xác suất trong khoảng (0, 1):
+[257] [Normal] z = β₀ + β₁X₁ + β₂X₂ + ... + βₚXₚ
+[258] [Normal] P(Y = 1|X) = σ(z) = 1 / (1 + e^(−z))
+[259] [Normal] Trong đó:
+[260] [Normal] - β₀ là hệ số chặn (bias/intercept);
+[261] [Normal] - β₁, β₂, ..., βₚ là các hệ số hồi quy tương ứng với từng đặc trưng X₁, X₂, ..., Xₚ;
+[262] [Normal] - σ(z) là hàm sigmoid (logistic function), có giá trị trong khoảng (0, 1), biểu thị xác suất ước lượng P(Y=1|X).
+[263] [Normal] Vai trò Baseline: Trong quy trình phát triển mô hình học máy, Logistic Regression được sử dụng làm mô hình cơ sở (Baseline) để đối chiếu với các mô hình phức tạp hơn. Nếu một mô hình phức tạp không vư
+[264] [Normal] Ưu điểm: (i) Dễ hiểu và dễ giải thích - hệ số β phản ánh trực tiếp tác động biên của từng đặc trưng đến log-odds; (ii) Tốc độ huấn luyện và dự đoán nhanh; (iii) Ổn định về mặt thống kê; (iv) Phù hợp k
+[265] [Normal] Hạn chế: (i) Giả định quan hệ tuyến tính giữa log-odds và đặc trưng, không nắm bắt tốt các mối quan hệ phi tuyến phức tạp; (ii) Nhạy cảm với các đặc trưng tương quan cao (multicollinearity); (iii) Hiệ
+[266] [Heading 3] 1.3.3. Mô hình Cây quyết định (Decision Tree Classifier)
+[267] [Normal] Cây quyết định (Decision Tree) là mô hình học máy có giám sát có cấu trúc phân cấp dạng cây, hoạt động theo nguyên lý phân chia dữ liệu đệ quy dựa trên các điều kiện kiểm tra đặc trưng. Mô hình dễ trự
+[268] [Normal] Cấu trúc cây: Một Cây quyết định bao gồm ba loại thành phần chính: (i) Nút gốc (Root Node) - nút đầu tiên của cây, đại diện cho điều kiện phân chia toàn bộ tập dữ liệu; (ii) Nút nhánh (Internal Node) 
+[269] [Normal] Tiêu chí phân chia: Tại mỗi nút, thuật toán chọn đặc trưng và ngưỡng phân chia tối ưu dựa trên các tiêu chí: Gini Impurity (đo mức độ hỗn tạp của một nút - giá trị nhỏ hơn nghĩa là nút thuần hơn) hoặc
+[270] [Normal] Ưu điểm: (i) Dễ giải thích và trực quan - có thể in ra cây để cán bộ tín dụng theo dõi luồng quyết định; (ii) Không yêu cầu chuẩn hóa dữ liệu đầu vào; (iii) Xử lý tốt cả đặc trưng số và đặc trưng phân
+[271] [Normal] Hạn chế: Nhược điểm chính của Decision Tree đơn lẻ là hiện tượng overfit (học thuộc dữ liệu huấn luyện quá mức) khi cây có độ sâu lớn, dẫn đến hiệu năng kém trên dữ liệu mới. Cây cũng có thể rất nhạy 
+[272] [Heading 3] 1.3.4. Mô hình Rừng ngẫu nhiên (Random Forest Classifier)
+[273] [Normal] Random Forest (Rừng ngẫu nhiên) là một thuật toán học máy Ensemble được đề xuất bởi Breiman (2001), xây dựng dựa trên ý tưởng kết hợp nhiều Cây quyết định độc lập để đưa ra dự đoán chung chính xác hơn
+[274] [Normal] Nguyên lý Bagging và Random Feature Selection: Quá trình xây dựng Random Forest gồm hai cơ chế đặc trưng: (i) Bagging - mỗi cây trong rừng được huấn luyện trên một tập dữ liệu bootstrap (lấy mẫu có ho
+[275] [Normal] Cơ chế Voting: Sau khi huấn luyện N cây quyết định (N thường từ 100-1000), kết quả cuối cùng được tổng hợp bằng cơ chế bầu chọn đa số (Majority Voting): nhãn lớp được gán nhiều nhất bởi các cây đơn lẻ
+[276] [Normal] Ưu điểm: (i) Độ chính xác cao và ổn định, khắc phục hiện tượng overfit của Decision Tree đơn lẻ; (ii) Cung cấp Feature Importance - đo lường mức độ đóng góp của từng đặc trưng vào chất lượng dự báo; (
+[277] [Normal] Hạn chế: (i) Chi phí tính toán và lưu trữ lớn khi số cây nhiều; (ii) Kết quả khó giải thích chi tiết hơn so với một cây đơn lẻ - đây là đặc tính "hộp trắng một phần" (semi-black box); (iii) Không phải
+[278] [Heading 3] 1.3.5. Mô hình XGBoost (Extreme Gradient Boosting)
+[279] [Normal] XGBoost (Extreme Gradient Boosting) được phát triển bởi Chen & Guestrin (2016) và nhanh chóng trở thành thuật toán hàng đầu trong các cuộc thi Machine Learning cũng như ứng dụng thực tiễn trong lĩnh v
+[280] [Normal] Nguyên lý Gradient Boosting và xây dựng tuần tự: Không giống Bagging (xây dựng cây độc lập song song), Boosting xây dựng các cây tuần tự: cây thứ k được huấn luyện để giảm thiểu phần dư (residuals) ha
+[281] [Normal] ŷᵢ = Σₖ fₖ(Xᵢ)
+[282] [Normal] Trong đó fₖ là cây thứ k và tổng cộng K cây được xây dựng. XGBoost tối ưu hàm mục tiêu bao gồm cả hàm mất mát (Loss) và thành phần Regularization để kiểm soát độ phức tạp mô hình:
+[283] [Normal] Obj = L(y, ŷ) + Ω(f)
+[284] [Normal] Regularization: XGBoost tích hợp cả L1 (Lasso) và L2 (Ridge) regularization vào hàm mục tiêu, giúp kiểm soát mức độ phức tạp của từng cây và giảm thiểu overfit hiệu quả hơn các thuật toán Gradient Boo
+[285] [Normal] Ưu điểm: (i) Hiệu năng dự báo cao, thường vượt trội so với Random Forest trên dữ liệu tín dụng có cấu trúc (Trần Thị Thanh Thủy, 2021); (ii) Tích hợp sẵn cơ chế xử lý dữ liệu thiếu (missing values); (
+[286] [Normal] Hạn chế: (i) Cần tinh chỉnh nhiều siêu tham số (learning_rate, max_depth, n_estimators, subsample...); (ii) Bản thân mô hình XGBoost vẫn mang tính "hộp đen" - cần kết hợp với phương pháp XAI (như SHAP
+[287] [Normal] Vai trò trong bài toán Credit Risk: XGBoost là thuật toán trọng tâm trong đề tài, được kỳ vọng sẽ đạt hiệu năng dự báo cao nhất so với các mô hình baseline. Khi kết hợp với SHAP, XGBoost không chỉ cho
+[288] [Heading 2] 1.4. Tập dữ liệu nghiên cứu UCI Credit Card Clients
+[289] [Heading 3] 1.4.1. Nguồn gốc và ý nghĩa tập dữ liệu nghiên cứu
+[290] [Normal] Tập dữ liệu nghiên cứu được sử dụng trong đề tài là "Default of Credit Card Clients Dataset", do I-Cheng Yeh và Che-hui Lien thu thập và công bố gắn liền với công trình nghiên cứu của các tác giả trên
+[291] [Normal] Bối cảnh thu thập dữ liệu: Tập dữ liệu được thu thập từ một ngân hàng thương mại tại Đài Loan trong giai đoạn tháng 4 đến tháng 9 năm 2005, phản ánh thông tin của 30.000 khách hàng thẻ tín dụng. Bối c
+[292] [Normal] Đặc điểm tổng quan: Tập dữ liệu bao gồm:
+[293] [Normal] - Số lượng bản ghi: 30.000 khách hàng thẻ tín dụng;
+[294] [Normal] - Số biến dự báo (đặc trưng): 23 biến;
+[295] [Normal] - Biến mục tiêu: default.payment.next.month (0 = không vỡ nợ, 1 = vỡ nợ);
+[296] [Normal] - Tỷ lệ vỡ nợ: khoảng 22,12% (6.636 khách hàng vỡ nợ).
+[297] [Normal] Ý nghĩa nghiên cứu: Tập dữ liệu này được đánh giá cao trong cộng đồng nghiên cứu vì một số lý do: (i) Quy mô đủ lớn (30.000 mẫu) để huấn luyện và đánh giá các mô hình học máy một cách đáng tin cậy; (i
+[298] [Heading 3] 1.4.2. Mô tả chi tiết các biến dự báo và biến mục tiêu
+[299] [Normal] Các biến trong tập dữ liệu có thể phân thành năm nhóm chính như trình bày trong Bảng 1.3 dưới đây:
+[300] [Normal] Bảng 1.3. Mô tả chi tiết các biến trong tập dữ liệu UCI Credit Card Clients
+[302] [Heading 2] 1.5. Trí tuệ nhân tạo có thể giải thích (Explainable AI) và phương pháp SHAP
+[303] [Heading 3] 1.5.1. Khái niệm và sự cần thiết của Explainable AI trong lĩnh vực tài chính
+[304] [Normal] Trí tuệ nhân tạo có thể giải thích (Explainable Artificial Intelligence - XAI) là lĩnh vực nghiên cứu tập trung vào việc phát triển các phương pháp và công cụ giúp con người hiểu được cơ chế hoạt động
+[305] [Normal] Tại sao mô hình Machine Learning có thể khó giải thích: Các mô hình phức tạp như XGBoost hay Random Forest đưa ra dự đoán thông qua hàng trăm hoặc hàng nghìn cây quyết định tương tác với nhau. Không c
+[306] [Normal] Tầm quan trọng của XAI trong lĩnh vực tín dụng: Trong lĩnh vực tài chính tín dụng, khả năng giải thích mô hình không chỉ là yêu cầu kỹ thuật mà còn là yêu cầu pháp lý và đạo đức. Thứ nhất, tính minh b
+[307] [Normal] Giới hạn của việc giải thích mô hình: Cần lưu ý rằng XAI không biến mô hình "hộp đen" thành "hộp trắng" hoàn toàn. Các phương pháp XAI như SHAP cung cấp xấp xỉ về đóng góp của từng đặc trưng, không ph
+[308] [Heading 3] 1.5.2. Nguyên lý toán học Shapley Values và kỹ thuật SHAP (Global & Local Explanations)
+[309] [Normal] Phương pháp SHAP (SHapley Additive exPlanations) được giới thiệu bởi Lundberg & Lee (2017) như một phương pháp thống nhất để giải thích dự đoán của các mô hình Machine Learning, dựa trên nền tảng toán
+[310] [Normal] Shapley Values - Ý tưởng phân bổ đóng góp: Trong lý thuyết trò chơi, Shapley Value giải quyết bài toán phân bổ phần thưởng công bằng cho các "người chơi" (features) trong một trò chơi hợp tác (tập mô 
+[311] [Normal] φᵢ = Σ_{S ⊆ N\{i}}  [|S|! (|N| − |S| − 1)! / |N|!] × [f(S ∪ {i}) − f(S)]
+[312] [Normal] Trong đó:
+[313] [Normal] - S là một tập con của các đặc trưng không chứa đặc trưng i;
+[314] [Normal] - N là tập tất cả các đặc trưng;
+[315] [Normal] - f(S) là giá trị dự đoán của mô hình khi chỉ sử dụng tập đặc trưng S;
+[316] [Normal] - f(S ∪ {i}) − f(S) là phần đóng góp cận biên của đặc trưng i khi thêm vào tập S;
+[317] [Normal] - Tổng được lấy trung bình theo trọng số trên tất cả các tập con S có thể.
+[318] [Normal] Shapley Values thỏa mãn các tính chất toán học quan trọng: Hiệu quả (Efficiency) - tổng tất cả SHAP values bằng độ lệch giữa dự đoán cụ thể và dự đoán trung bình; Đối xứng (Symmetry) - hai đặc trưng đ
+[319] [Normal] SHAP - Triển khai thực tiễn: Lundberg & Lee (2017) đề xuất SHAP như một phương pháp giải thích cộng tính (Additive Feature Attribution): dự đoán của mô hình cho mẫu x được phân tích thành:
+[320] [Normal] f(x) = φ₀ + Σᵢ φᵢ
+[321] [Normal] Trong đó φ₀ là giá trị dự đoán cơ sở (base value - dự đoán trung bình trên tập dữ liệu) và φᵢ là đóng góp của đặc trưng i vào dự đoán cụ thể cho mẫu x. Giá trị φᵢ dương nghĩa là đặc trưng i đẩy dự đoá
+[322] [Normal] Global Explanation - Giải thích tổng thể: SHAP Global Explanation tổng hợp SHAP values trên toàn bộ tập dữ liệu để đánh giá mức độ đóng góp trung bình của từng đặc trưng vào khả năng dự báo của mô hìn
+[323] [Normal] Local Explanation - Giải thích cá thể: SHAP Local Explanation phân tích đóng góp của từng đặc trưng cho một dự đoán cụ thể của một khách hàng cụ thể. Các trực quan hóa thường dùng bao gồm: Force Plot 
+[324] [Normal] Lưu ý: Việc ứng dụng SHAP trong thực nghiệm, bao gồm các biểu đồ SHAP thực tế và phân tích kết quả Global/Local Explanation của mô hình được lựa chọn, sẽ được trình bày chi tiết trong Chương 3 của khó
+[326] [Normal] TÀI LIỆU THAM KHẢO
+[327] [Normal] 1. Ala'raj, S., & Abbod, M. F. (2016). A new consensus classification framework for credit scoring. Knowledge-Based Systems, 92, 83–95. https://doi.org/10.1016/j.knosys.2015.10.018
+[328] [Normal] 2. Bussmann, N., Giudici, P., Marinelli, D., & Papenbrock, J. (2021). Explainable AI in credit risk management. Frontiers in Artificial Intelligence, 4, Article 670486. https://doi.org/10.3389/frai.20
+[329] [Normal] 3. Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 785–794). https://
+[330] [Normal] 4. Lê, V. T., & Nguyễn, H. N. (2020). Ứng dụng các thuật toán học máy trong dự báo rủi ro vỡ nợ của khách hàng cá nhân. Tạp chí Kinh tế và Phát triển, (278), 32–41.
+[331] [Normal] 5. Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 4765–4774.
+[332] [Normal] 6. Nguyễn, T. C. N., & Đinh, N. (2019). Xây dựng mô hình chấm điểm tín dụng cá nhân tại Ngân hàng Thương mại Cổ phần Ngoại thương Việt Nam. Tạp chí Khoa học & Đào tạo Ngân hàng, (204), 45–54.
+[333] [Normal] 7. Phạm, L., & Nguyễn, T. H. Y. (2022). Đánh giá hiệu quả của các mô hình Học máy có giám sát trong chấm điểm tín dụng cá nhân. Tạp chí Nghiên cứu Kinh tế và Kinh doanh Châu Á (JABES), 33(4), 55–70.
+[334] [Normal] 8. Shen, F., Zhao, X., Li, Z., Li, K., & Kou, G. (2019). A novel ensemble classification model based on neural networks and particle swarm optimization for credit scoring. Applied Soft Computing, 84, 
+[335] [Normal] 9. Thomas, L. C., Edelman, D. B., & Thomas, W. H. (2002). Credit scoring and its applications. Society for Industrial and Applied Mathematics (SIAM). https://doi.org/10.1137/1.9780898718317
+[336] [Normal] 10. Trần, T. T. T. (2021). Nghiên cứu ứng dụng thuật toán XGBoost và Random Forest trong đánh giá rủi ro tín dụng tại các ngân hàng thương mại Việt Nam. Tạp chí Ngân hàng, (15), 18–25.
+[337] [Normal] 11. Tripathi, D., Edla, D. R., & Kupagal, V. (2020). Credit scoring model using hybrid feature selection and ensemble learning techniques. Computational Intelligence, 36(3), 1073–1094. https://doi.org
+[338] [Normal] 12. UCI Machine Learning Repository. (2016). Default of Credit Card Clients Dataset [Kaggle mirror]. https://www.kaggle.com/datasets/uciml/default-of-credit-card-clients-dataset
+[339] [Normal] 13. Yeh, I. C., & Lien, C. H. (2009). The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients. Expert Systems with Applications, 36(2), 2

@@ -1,0 +1,83 @@
+{
+  "model": "XGBoost Tuned",
+  "threshold": 0.6,
+  "shap_method": "TreeExplainer",
+  "explanation_dataset": "X_test (5993 samples, 33 features)",
+  "note": "Post-hoc model interpretation — no retraining performed",
+  "expected_value": 0.08986,
+  "top10_features": [
+    {
+      "Feature": "MAX_PAY_DELAY",
+      "Mean_Abs_SHAP": 0.44938985
+    },
+    {
+      "Feature": "PAY_0",
+      "Mean_Abs_SHAP": 0.2796968
+    },
+    {
+      "Feature": "COUNT_LATE_PAYMENT",
+      "Mean_Abs_SHAP": 0.12105448
+    },
+    {
+      "Feature": "BILL_AMT1",
+      "Mean_Abs_SHAP": 0.11264164
+    },
+    {
+      "Feature": "UTILIZATION_RATE_SEPT",
+      "Mean_Abs_SHAP": 0.09419321
+    },
+    {
+      "Feature": "LIMIT_BAL",
+      "Mean_Abs_SHAP": 0.09209359
+    },
+    {
+      "Feature": "PAY_AMT2",
+      "Mean_Abs_SHAP": 0.08170041
+    },
+    {
+      "Feature": "PAY_AMT3",
+      "Mean_Abs_SHAP": 0.072488375
+    },
+    {
+      "Feature": "PAY_AMT1",
+      "Mean_Abs_SHAP": 0.07192804
+    },
+    {
+      "Feature": "MEAN_PAY_AMT",
+      "Mean_Abs_SHAP": 0.063862845
+    }
+  ],
+  "local_cases": [
+    {
+      "Case": "High Risk",
+      "X_test Index": 3433,
+      "Probability": 0.9616,
+      "Threshold": 0.6,
+      "Predicted Class": "Default",
+      "Actual Class": "Default",
+      "Top Risk Factors (+SHAP)": "MAX_PAY_DELAY, PAY_0, COUNT_LATE_PAYMENT",
+      "Top Protective Factors (-SHAP)": "LIMIT_BAL, BILL_AMT4, BILL_AMT6"
+    },
+    {
+      "Case": "Low Risk",
+      "X_test Index": 1985,
+      "Probability": 0.0284,
+      "Threshold": 0.6,
+      "Predicted Class": "Non-Default",
+      "Actual Class": "Non-Default",
+      "Top Risk Factors (+SHAP)": "MARRIAGE, EDUCATION, PAY_6",
+      "Top Protective Factors (-SHAP)": "PAY_AMT2, MAX_PAY_DELAY, PAY_AMT4"
+    },
+    {
+      "Case": "Near Threshold",
+      "X_test Index": 1753,
+      "Probability": 0.6001,
+      "Threshold": 0.6,
+      "Predicted Class": "Default",
+      "Actual Class": "Non-Default",
+      "Top Risk Factors (+SHAP)": "MAX_PAY_DELAY, COUNT_LATE_PAYMENT, BILL_AMT4",
+      "Top Protective Factors (-SHAP)": "PAY_AMT2, PAY_0, PAY_AMT5"
+    }
+  ],
+  "week": 9
+}

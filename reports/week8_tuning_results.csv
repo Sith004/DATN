@@ -1,0 +1,4 @@
+model_name,threshold,accuracy,precision,recall,f1,roc_auc,pr_auc,tn,fp,fn,tp,best_params
+Random Forest (Default) Tuned,0.5,0.8206,0.6785,0.3597,0.4702,0.7773,0.561,4441,226,849,477,"{""n_estimators"": 250, ""min_samples_split"": 10, ""min_samples_leaf"": 4, ""max_features"": 0.5, ""max_depth"": 10}"
+Random Forest (Balanced) Tuned,0.5,0.7764,0.4956,0.595,0.5408,0.7753,0.5584,3864,803,537,789,"{""n_estimators"": 250, ""min_samples_split"": 10, ""min_samples_leaf"": 4, ""max_features"": 0.5, ""max_depth"": 10}"
+XGBoost Tuned,0.5,0.7686,0.482,0.6161,0.5409,0.7769,0.562,3789,878,509,817,"{""subsample"": 0.6, ""reg_lambda"": 1.0, ""reg_alpha"": 0.5, ""n_estimators"": 250, ""min_child_weight"": 1, ""max_depth"": 6, ""learning_rate"": 0.03, ""gamma"": 0.3, ""colsample_bytree"": 0.9}"

@@ -1,0 +1,19 @@
+model,metric,before,after,delta
+Random Forest (Default),accuracy,0.8143,0.8206,0.0063
+Random Forest (Default),precision,0.6364,0.6785,0.0421
+Random Forest (Default),recall,0.3748,0.3597,-0.0151
+Random Forest (Default),f1,0.4718,0.4702,-0.0016
+Random Forest (Default),roc_auc,0.7659,0.7773,0.0114
+Random Forest (Default),pr_auc,0.5381,0.561,0.0229
+Random Forest (Balanced),accuracy,0.7973,0.7764,-0.0209
+Random Forest (Balanced),precision,0.5471,0.4956,-0.0515
+Random Forest (Balanced),recall,0.4864,0.595,0.1086
+Random Forest (Balanced),f1,0.515,0.5408,0.0258
+Random Forest (Balanced),roc_auc,0.7661,0.7753,0.0092
+Random Forest (Balanced),pr_auc,0.5297,0.5584,0.0287
+XGBoost (Baseline),accuracy,0.8201,0.7686,-0.0515
+XGBoost (Baseline),precision,0.6766,0.482,-0.1946
+XGBoost (Baseline),recall,0.3582,0.6161,0.2579
+XGBoost (Baseline),f1,0.4684,0.5409,0.0725
+XGBoost (Baseline),roc_auc,0.7792,0.7769,-0.0023
+XGBoost (Baseline),pr_auc,0.5611,0.562,0.0009

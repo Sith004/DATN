@@ -1,0 +1,154 @@
+[000] [Normal] TRƯỜNG ĐẠI HỌC TÀI NGUYÊN VÀ MÔI TRƯỜNG TP.HCM
+[001] [Normal] KHOA: CÔNG NGHỆ THÔNG TIN
+[002] [Normal] ĐỀ CƯƠNG ĐỒ ÁN TỐT NGHIỆP
+[003] [Normal] TÊN ĐỀ TÀI:
+[004] [Normal] ỨNG DỤNG MACHINE LEARNING TRONG ĐÁNH GIÁ VÀ DỰ BÁO RỦI RO TÍN DỤNG KHÁCH HÀNG
+[005] [Normal] Giảng viên hướng dẫn : Học vị. Tên giảng viên hướng dẫn [CẦN BỔ SUNG]
+[006] [Normal] Sinh viên thực hiện    : Nguyễn Trọng Thể
+[007] [Normal] Mã số sinh viên        : 1150080117
+[008] [Normal] Lớp                    : 11_ĐH_THMT
+[009] [Normal] Khoá                   : K11
+[010] [Normal] TP. Hồ Chí Minh, tháng … năm … [CẦN BỔ SUNG]
+[012] [Normal] PHẦN I. MỞ ĐẦU
+[013] [Normal] 1. Cơ sở khoa học và tính thực tiễn của đề tài
+[014] [Normal] 1.1. Tính thực tiễn của đề tài
+[015] [Normal] Trong hoạt động của các ngân hàng thương mại và tổ chức tài chính, cấp tín dụng (cho vay, phát hành thẻ tín dụng) là hoạt động mang lại lợi nhuận chính nhưng cũng ẩn chứa rủi ro cao nhất. Rủi ro tín d
+[016] [Normal] Các phương pháp chấm điểm tín dụng truyền thống dựa trên chuyên gia hoặc bảng điểm cố định tỏ ra cứng nhắc, chưa khai thác hết các mối liên hệ phi tuyến phức tạp trong dữ liệu lịch sử thanh toán. Do đ
+[017] [Normal] 1.2. Cơ sở khoa học của đề tài
+[018] [Normal] Đề tài dựa trên cơ sở khoa học của phân ngành Học máy có giám sát (Supervised Machine Learning) giải bài toán Phân loại nhị phân (Binary Classification). Mô hình nhận đầu vào là các đặc trưng nhân khẩ
+[019] [Normal] Trong phạm vi đề tài, thuật ngữ 'Probability of Default' (PD) được sử dụng để chỉ xác suất default do mô hình Machine Learning ước lượng từ dữ liệu nghiên cứu, không đại diện cho hệ thống tính toán PD
+[020] [Normal] Đề tài nghiên cứu ứng dụng các nguyên lý khoa học dữ liệu hiện đại:
+[021] [Normal] - Tiền xử lý dữ liệu, quy tắc kiểm soát Data Leakage và xử lý giá trị bất thường.
+[022] [Normal] - Phân tích và nghiên cứu thực nghiệm các kỹ thuật xử lý mất cân bằng dữ liệu (Class Imbalance) như Class Weighting, Threshold Tuning hoặc SMOTE (áp dụng strictly trên tập train / cross-validation pip
+[023] [Normal] - Nghiên cứu và đánh giá khả năng sử dụng của các đặc trưng tài chính mới (Feature Engineering).
+[024] [Normal] - Các thuật toán học máy phân loại: Logistic Regression (baseline), Decision Tree, Random Forest và XGBoost.
+[025] [Normal] - Đánh giá mô hình bằng hệ thống chỉ số đa chiều: Accuracy, Precision, Recall, F1-Score, ROC-AUC, PR-AUC và Confusion Matrix (chú trọng phân tích trade-off giữa False Positive và False Negative).
+[026] [Normal] - Trí tuệ nhân tạo có thể giải thích (Explainable AI - XAI) thông qua phương pháp SHAP để phân tích mức độ đóng góp của các đặc trưng vào kết quả dự báo của mô hình.
+[027] [Normal] 2. Mục đích nghiên cứu
+[028] [Normal] - Nghiên cứu cơ sở lý thuyết về rủi ro tín dụng, bài toán chấm điểm tín dụng (Credit Scoring) và quy trình phát triển mô hình Machine Learning trong lĩnh vực tài chính.
+[029] [Normal] - Sử dụng ngôn ngữ lập trình Python và các thư viện chuyên dụng (Pandas, NumPy, Scikit-learn, XGBoost, SHAP, Matplotlib, Seaborn) để phân tích, tiền xử lý và xây dựng các đặc trưng tài chính từ tập dữ
+[030] [Normal] - Huấn luyện, đánh giá và so sánh thực nghiệm hiệu năng của các thuật toán học máy nhằm lựa chọn mô hình phù hợp nhất cho bài toán đánh giá rủi ro tín dụng trong phạm vi đề tài.
+[031] [Normal] - Nghiên cứu áp dụng SHAP để giải thích mức độ đóng góp của đặc trưng đối với dự đoán của mô hình ở cấp độ tổng thể (Global Explanation) và cấp độ cá nhân (Local Explanation).
+[032] [Normal] - Xây dựng một ứng dụng Prototype (Python Streamlit/Web UI) đóng vai trò Hệ thống hỗ trợ ra quyết định (Decision Support System - DSS Prototype), hỗ trợ nhập thông tin khách hàng, tính toán xác suất d
+[033] [Normal] 3. Đối tượng và phạm vi nghiên cứu
+[034] [Normal] 3.1. Các ngôn ngữ lập trình và công cụ phát triển
+[035] [Normal] - Ngôn ngữ lập trình: Python (phiên bản 3.x).
+[036] [Normal] - Công cụ nghiên cứu & phát triển: Jupyter Notebook / VS Code.
+[037] [Normal] - Thư viện Machine Learning & Khoa học dữ liệu: Pandas, NumPy, Scikit-learn, XGBoost, Imbalanced-learn, SHAP.
+[038] [Normal] - Thư viện trực quan hóa dữ liệu: Matplotlib, Seaborn.
+[039] [Normal] - Framework phát triển phần mềm/prototype: Streamlit (hoặc Web UI đơn giản).
+[040] [Normal] 3.2. Các kỹ năng và kiến thức nghiệp vụ cơ bản
+[041] [Normal] - Phân tích và làm sạch dữ liệu khách hàng thẻ tín dụng.
+[042] [Normal] - Hiểu biết các chỉ số tài chính cá nhân: Hạn mức tín dụng (LIMIT_BAL), Tỷ lệ sử dụng tín dụng (Credit Utilization), Lịch sử chậm thanh toán (PAY_0 đến PAY_6), Số tiền hóa đơn (BILL_AMT) và Số tiền đã
+[043] [Normal] - Kỹ thuật tính toán xác suất default ước lượng từ mô hình Machine Learning.
+[044] [Normal] - Nghiên cứu xây dựng và thử nghiệm các ngưỡng phân loại mức rủi ro (Low/Medium/High Risk) dựa trên xác suất dự đoán của mô hình phục vụ mục đích minh họa trên prototype [XÁC ĐỊNH NGƯỠNG SAU KHI THỰC 
+[045] [Normal] 3.3. Đối tượng dữ liệu
+[046] [Normal] - Tập dữ liệu nghiên cứu: Default of Credit Card Clients Dataset (UCI Machine Learning Repository / Kaggle - file UCI_Credit_Card.csv).
+[047] [Normal] - Quy mô: 30.000 bản ghi khách hàng thẻ tín dụng tại Đài Loan, gồm 23 biến dự báo (đặc trưng nhân khẩu học, lịch sử thanh toán, nợ hóa đơn) và 1 biến mục tiêu default.payment.next.month (tỷ lệ default
+[048] [Normal] 3.4. Loại phần mềm cần phát triển & Phạm vi đề tài
+[049] [Normal] - Loại phần mềm: Prototype ứng dụng Web hỗ trợ đánh giá rủi ro tín dụng khách hàng (Decision Support System Prototype).
+[050] [Normal] - Giới hạn phạm vi: Đề tài tập trung ở mức độ nghiên cứu học thuật và xây dựng phần mềm prototype minh họa. Đề tài KHÔNG thực hiện: tích hợp trực tiếp với hệ thống Core Banking, xử lý dữ liệu giao dịc
+[051] [Normal] 4. Phương pháp nghiên cứu
+[052] [Normal] 4.1. Các phương pháp nghiên cứu lý thuyết áp dụng
+[053] [Normal] - Phương pháp nghiên cứu tài liệu: Tìm hiểu các công trình nghiên cứu, bài báo khoa học về Credit Scoring, áp dụng Machine Learning trong đánh giá rủi ro tín dụng, xử lý dữ liệu mất cân bằng, kiểm soá
+[054] [Normal] - Phương pháp phân tích - tổng hợp: Nghiên cứu cấu trúc bài toán Binary Classification, cơ sở toán học của Logistic Regression, Decision Tree, Random Forest, XGBoost và phương pháp Shapley values tron
+[055] [Normal] 4.2. Các phương pháp thực nghiệm áp dụng
+[056] [Normal] - Phương pháp Phân tích dữ liệu khám phá (EDA): Sử dụng thống kê mô tả và biểu đồ trực quan để phân tích phân phối dữ liệu, phát hiện giá trị bất thường, kiểm tra tương quan.
+[057] [Normal] - Phương pháp Tiền xử lý & Chống Data Leakage: Chia tập Train/Test trước các bước mã hóa/chuẩn hóa; fit Scaler/Encoder duy nhất trên tập Train. Thực nghiệm các kỹ thuật Class Weight, Threshold Tuning 
+[058] [Normal] - Phương pháp Kỹ thuật đặc trưng (Feature Engineering): Nghiên cứu và đánh giá khả năng sử dụng của các biến tài chính tổng hợp mới dựa trên kiểm chứng thực nghiệm.
+[059] [Normal] - Phương pháp Thực nghiệm Machine Learning: Thực hiện phân chia tập Train/Test, áp dụng Cross-Validation, thực nghiệm tối ưu siêu tham số khi cần thiết.
+[060] [Normal] - Phương pháp Đánh giá & So sánh mô hình: Sử dụng các thước đo Accuracy, Precision, Recall, F1-Score, ROC-AUC, PR-AUC, Confusion Matrix và đánh giá đánh đổi nghiệp vụ giữa False Positive và False Nega
+[061] [Normal] - Phương pháp Thử nghiệm phần mềm: Kiểm thử ứng dụng Web Prototype, kiểm tra tính đúng đắn của luồng xử lý từ nhập liệu -> dự báo xác suất ước lượng -> hiển thị mức rủi ro thử nghiệm -> xuất các yếu t
+[062] [Normal] 5. Thời gian thực hiện
+[063] [Normal] Từ … đến … [CẦN BỔ SUNG] (Dự kiến thực hiện trong đợt 1 năm học 2026 - 2027).
+[064] [Normal] 6. Kết quả dự kiến đạt được
+[065] [Normal] - Tập dữ liệu UCI Credit Card được tiền xử lý chuẩn hóa và kiểm soát rò rỉ dữ liệu.
+[066] [Normal] - Bộ mã nguồn huấn luyện, so sánh và đánh giá các mô hình Machine Learning (Logistic Regression, Decision Tree, Random Forest, XGBoost).
+[067] [Normal] - Bảng tổng hợp so sánh hiệu năng thực nghiệm các mô hình dựa trên hệ thống đa chỉ số đánh giá, xác định mô hình phù hợp nhất cho đề tài.
+[068] [Normal] - Kết quả phân tích các đặc trưng ảnh hưởng đến kết quả dự báo (Global & Local Explanation) thông qua SHAP.
+[069] [Normal] - Mô hình được lưu trữ (Model Artifacts) và ứng dụng Web Prototype hoạt động ổn định: hỗ trợ nhập thông tin khách hàng, xuất xác suất default ước lượng, phân loại mức rủi ro thử nghiệm (Low/Medium/Hig
+[070] [Normal] - Quyển Khóa luận tốt nghiệp được trình bày khoa học, đầy đủ theo đúng định dạng yêu cầu của Khoa Công nghệ Thông tin - Trường Đại học Tài nguyên và Môi trường TP.HCM.
+[071] [Normal] PHẦN II. NỘI DUNG DÀN Ý KHÓA LUẬN
+[072] [Normal] LỜI MỞ ĐẦU
+[073] [Normal] Chương 1. TỔNG QUAN TÀI LIỆU
+[074] [Normal] 1.1. Tổng quan về rủi ro tín dụng và bài toán chấm điểm tín dụng
+[075] [Normal] 1.1.1. Khái niệm rủi ro tín dụng (Credit Risk) và vỡ nợ (Default)
+[076] [Normal] 1.1.2. Vai trò của Chấm điểm tín dụng (Credit Scoring) trong quản trị rủi ro ngân hàng
+[077] [Normal] 1.1.3. Thách thức trong dự báo rủi ro tín dụng cá nhân
+[078] [Normal] 1.2. Tổng quan về Machine Learning trong phân loại rủi ro tín dụng
+[079] [Normal] 1.2.1. Giới thiệu bài toán Phân loại nhị phân (Binary Classification)
+[080] [Normal] 1.2.2. Tổng quan các nghiên cứu liên quan về Machine Learning trong Credit Scoring
+[081] [Normal] 1.2.3. Ưu điểm và hạn chế của Machine Learning so với phương pháp truyền thống
+[082] [Normal] 1.3. Tập dữ liệu nghiên cứu UCI Credit Card Clients
+[083] [Normal] 1.3.1. Nguồn gốc và ý nghĩa tập dữ liệu
+[084] [Normal] 1.3.2. Mô tả các biến dự báo và biến mục tiêu
+[085] [Normal] 1.4. Trí tuệ nhân tạo có thể giải thích (Explainable AI - XAI)
+[086] [Normal] 1.4.1. Khái niệm và vai trò của XAI trong lĩnh vực tài chính
+[087] [Normal] 1.4.2. Giới thiệu phương pháp SHAP (SHapley Additive exPlanations)
+[088] [Normal] Chương 2. PHƯƠNG PHÁP THỰC HIỆN
+[089] [Normal] 2.1. Quy trình tổng thể xây dựng mô hình Machine Learning (ML Pipeline)
+[090] [Normal] 2.2. Kiểm duyệt dữ liệu và Phương pháp phân tích khám phá (Data Audit & EDA Methods)
+[091] [Normal] 2.2.1. Phương pháp kiểm duyệt chất lượng dữ liệu (Data Audit)
+[092] [Normal] 2.2.2. Phương pháp phân tích tương quan và trực quan hóa phân phối
+[093] [Normal] 2.3. Phương pháp Tiền xử lý dữ liệu và Quy tắc chống Data Leakage
+[094] [Normal] 2.3.1. Quy tắc phân chia tập Train/Test và kiểm soát rò rỉ dữ liệu (Data Leakage)
+[095] [Normal] 2.3.2. Phương pháp xử lý giá trị ngoại lệ và giá trị bất thường
+[096] [Normal] 2.3.3. Phương pháp chuẩn hóa (Scaling) và mã hóa đặc trưng (Encoding) duy nhất trên tập Train
+[097] [Normal] 2.4. Đề xuất Kỹ thuật trích rút đặc trưng (Feature Engineering Proposals)
+[098] [Normal] 2.4.1. Đề xuất các biến chỉ số tài chính (Credit Utilization, Payment Ratio, Bill/Payment Trend)
+[099] [Normal] 2.4.2. Phương pháp đánh giá thực nghiệm tính hiệu quả của các đặc trưng đề xuất
+[100] [Normal] 2.5. Các thuật toán Machine Learning đề xuất
+[101] [Normal] 2.5.1. Logistic Regression (Baseline Model)
+[102] [Normal] 2.5.2. Decision Tree Classifier
+[103] [Normal] 2.5.3. Random Forest Classifier
+[104] [Normal] 2.5.4. XGBoost (Extreme Gradient Boosting)
+[105] [Normal] 2.6. Phương pháp thực nghiệm xử lý Mất cân bằng dữ liệu (Class Imbalance Methods)
+[106] [Normal] 2.6.1. Phân tích lý thuyết tác động của mất cân bằng dữ liệu
+[107] [Normal] 2.6.2. Đề xuất áp dụng Class Weighting, Threshold Tuning và SMOTE (SMOTE strictly trong tập Train / Cross-Validation pipeline)
+[108] [Normal] 2.7. Phương pháp Đánh giá mô hình, Tối ưu hóa và Lựa chọn mô hình
+[109] [Normal] 2.7.1. Định nghĩa hệ thống chỉ số đánh giá (Accuracy, Precision, Recall, F1-Score, ROC-AUC, PR-AUC)
+[110] [Normal] 2.7.2. Phương pháp phân tích Ma trận nhầm lẫn (Confusion Matrix) và đánh đổi nghiệp vụ (False Positive vs False Negative)
+[111] [Normal] 2.7.3. Phương pháp Cross-Validation và Tối ưu siêu tham số (Hyperparameter Tuning)
+[112] [Normal] 2.7.4. Tiêu chí lựa chọn mô hình phù hợp nhất cho đề tài dựa trên kết quả thực nghiệm
+[113] [Normal] 2.8. Phương pháp giải thích mô hình với SHAP
+[114] [Normal] 2.8.1. Phương pháp phân tích đóng góp đặc trưng cấp tổng thể (Global Explanation)
+[115] [Normal] 2.8.2. Phương pháp phân tích đóng góp đặc trưng cấp cá thể (Local Explanation)
+[116] [Normal] 2.9. Phân tích Yêu cầu và Thiết kế Kiến trúc ứng dụng Web Prototype
+[117] [Normal] 2.9.1. Đặt tả yêu cầu chức năng, phi chức năng và luồng xử lý hệ thống
+[118] [Normal] 2.9.2. Thiết kế kiến trúc phần mềm DSS Prototype và sơ đồ nguyên lý phân loại rủi ro thử nghiệm
+[119] [Normal] Chương 3. CÀI ĐẶT THỰC NGHIỆM VÀ ĐÁNH GIÁ KẾT QUẢ
+[120] [Normal] 3.1. Môi trường phát triển và Thư viện cài đặt
+[121] [Normal] 3.2. Kết quả kiểm duyệt dữ liệu EDA và Cài đặt Tiền xử lý
+[122] [Normal] 3.2.1. Kết quả thực nghiệm làm sạch dữ liệu, chuẩn hóa và mã hóa đặc trưng
+[123] [Normal] 3.2.2. Kết quả đánh giá thực nghiệm hiệu quả các đặc trưng tạo mới (Feature Engineering)
+[124] [Normal] 3.3. Thực nghiệm Xây dựng mô hình cơ sở (Baseline) và So sánh mô hình
+[125] [Normal] 3.3.1. Kết quả huấn luyện mô hình cơ sở (Logistic Regression)
+[126] [Normal] 3.3.2. Kết quả huấn luyện và so sánh các mô hình (Decision Tree, Random Forest, XGBoost)
+[127] [Normal] 3.4. Thực nghiệm Xử lý mất cân bằng dữ liệu và Tối ưu siêu tham số
+[128] [Normal] 3.4.1. Kết quả so sánh hiệu năng trước và sau khi áp dụng Class Weighting / SMOTE / Threshold Tuning
+[129] [Normal] 3.4.2. Kết quả thực nghiệm tối ưu siêu tham số (Hyperparameter Tuning)
+[130] [Normal] 3.5. Bảng tổng hợp Đánh giá mô hình và Lựa chọn mô hình phù hợp nhất
+[131] [Normal] 3.5.1. Bảng so sánh đa chỉ số (Accuracy, Precision, Recall, F1, ROC-AUC, PR-AUC)
+[132] [Normal] 3.5.2. Phân tích chi tiết Ma trận nhầm lẫn, trade-off nghiệp vụ và quyết định chọn mô hình
+[133] [Normal] 3.6. Kết quả Thực nghiệm Giải thích mô hình bằng SHAP
+[134] [Normal] 3.6.1. Trực quan hóa kết quả đóng góp đặc trưng tổng thể (Global Feature Importance Plot)
+[135] [Normal] 3.6.2. Phân tích kết quả giải thích dự báo trường hợp khách hàng cụ thể (Local Force / Waterfall Plot)
+[136] [Normal] 3.7. Cài đặt, Triển khai và Kiểm thử ứng dụng Web Prototype
+[137] [Normal] 3.7.1. Cài đặt giao diện người dùng và tích hợp mô hình ML đã chọn
+[138] [Normal] 3.7.2. Kịch bản chạy thử nghiệm dự báo xác suất default, phân loại mức rủi ro thử nghiệm và hiển thị SHAP
+[139] [Normal] 3.8. Đánh giá tổng quan kết quả thực nghiệm, Thảo luận và Hạn chế đề tài
+[140] [Normal] KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+[141] [Normal] - Tóm tắt các kết quả nghiên cứu và thực nghiệm đạt được
+[142] [Normal] - Hạn chế của đề tài
+[143] [Normal] - Hướng phát triển trong tương lai
+[144] [Normal] PHẦN III. DỰ KIẾN KẾ HOẠCH THỰC HIỆN
+[146] [Normal] Bảng 3.1. Sơ đồ Gantt tiến độ thực hiện đồ án tốt nghiệp (12 tuần)
+[148] [Normal] PHẦN IV. TÀI LIỆU THAM KHẢO
+[149] [Normal] 1. Yeh, I. C., & Lien, C. H. (2009). The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients. Expert Systems with Applications, 36(2), 24
+[150] [Normal] 2. UCI Machine Learning Repository (2016). Default of Credit Card Clients Dataset. Available at: https://www.kaggle.com/datasets/uciml/default-of-credit-card-clients-dataset.
+[151] [Normal] 3. Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 4765-4774.
+[152] [Normal] 4. Pedregosa, F., et al. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research, 12, 2825-2830.
+[153] [Normal] 5. Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785-794.
+[154] [Normal] 6. Thomas, L. C., Edelman, D. B., & Thomas, W. H. (2002). Credit scoring and its applications. Society for Industrial and Applied Mathematics (SIAM).
+[155] [Normal] PHẦN V. CÁC CƠ QUAN, ĐƠN VỊ CẦN LIÊN HỆ
+[156] [Normal] Khoa Công nghệ thông tin – Trường Đại học Tài nguyên Và Môi trường TP Hồ Chí Minh, 236 Lê Văn Sỹ, Phường Tân Sơn Hòa, Tp. Hồ Chí Minh.

@@ -1,0 +1,4 @@
+Case,X_test Index,Probability,Threshold,Predicted Class,Actual Class,Top Risk Factors (+SHAP),Top Protective Factors (-SHAP)
+High Risk,3433,0.9616,0.6,Default,Default,"MAX_PAY_DELAY, PAY_0, COUNT_LATE_PAYMENT","LIMIT_BAL, BILL_AMT4, BILL_AMT6"
+Low Risk,1985,0.0284,0.6,Non-Default,Non-Default,"MARRIAGE, EDUCATION, PAY_6","PAY_AMT2, MAX_PAY_DELAY, PAY_AMT4"
+Near Threshold,1753,0.6001,0.6,Default,Non-Default,"MAX_PAY_DELAY, COUNT_LATE_PAYMENT, BILL_AMT4","PAY_AMT2, PAY_0, PAY_AMT5"
