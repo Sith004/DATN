@@ -28,15 +28,30 @@ logger = logging.getLogger("credit_risk_db")
 def get_db_connection():
     """
     Khởi tạo kết nối tới PostgreSQL sử dụng các biến môi trường.
-    Timeout kết nối được đặt là 3 giây để tránh làm ứng dụng bị treo khi mất kết nối.
+    Hỗ trợ cả Supabase / Cloud connection URI (DATABASE_URL / SUPABASE_DB_URL)
+    và cấu hình thông số riêng lẻ (DB_HOST, DB_PORT, v.v.).
     """
+    db_url = os.getenv("DATABASE_URL") or os.getenv("SUPABASE_DB_URL")
+    if db_url:
+        # Chuẩn hóa tiền tố postgres:// thành postgresql:// cho psycopg2
+        if db_url.startswith("postgres://"):
+            db_url = db_url.replace("postgres://", "postgresql://", 1)
+        connect_timeout = int(os.getenv("DB_CONNECT_TIMEOUT", "5"))
+        sslmode = os.getenv("DB_SSLMODE", "require")
+        # Nếu URI đã có sslmode, không truyền đè
+        if "sslmode=" in db_url.lower():
+            return psycopg2.connect(db_url, connect_timeout=connect_timeout)
+        return psycopg2.connect(db_url, connect_timeout=connect_timeout, sslmode=sslmode)
+
+    # Fallback cấu hình thông số riêng lẻ (Local / SSH Tunnel)
     return psycopg2.connect(
         host=os.getenv("DB_HOST", "127.0.0.1"),
         port=int(os.getenv("DB_PORT", "15432")),
         dbname=os.getenv("DB_NAME", "credit_risk_db"),
         user=os.getenv("DB_USER", "app_streamlit"),
         password=os.getenv("DB_PASSWORD", ""),
-        connect_timeout=3,
+        connect_timeout=int(os.getenv("DB_CONNECT_TIMEOUT", "3")),
+        sslmode=os.getenv("DB_SSLMODE", "prefer"),
     )
 
 def check_db_status() -> Tuple[bool, str]:
@@ -50,7 +65,20 @@ def check_db_status() -> Tuple[bool, str]:
         with conn.cursor() as cur:
             cur.execute("SELECT 1;")
             cur.fetchone()
-        return True, "Đã kết nối an toàn qua SSH Tunnel (Port 15432)"
+        db_url = os.getenv("DATABASE_URL") or os.getenv("SUPABASE_DB_URL")
+        if db_url:
+            if "supabase" in db_url.lower():
+                target = "Supabase Cloud PostgreSQL"
+            else:
+                target = "Cloud PostgreSQL (DATABASE_URL)"
+        else:
+            host = os.getenv("DB_HOST", "127.0.0.1")
+            port = os.getenv("DB_PORT", "15432")
+            if host in ("127.0.0.1", "localhost") and str(port) == "15432":
+                target = "SSH Tunnel (Port 15432)"
+            else:
+                target = f"PostgreSQL ({host}:{port})"
+        return True, f"Đã kết nối an toàn tới {target}"
     except Exception as e:
         err_msg = str(e).split("\n")[0]
         return False, f"Mất kết nối CSDL: {err_msg}"

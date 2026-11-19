@@ -94,16 +94,20 @@ class _PredictionHistoryScreenState extends State<PredictionHistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LỊCH SỬ DỰ BÁO (POSTGRESQL)'),
+        title: const Text('SỔ PHỤ LỊCH SỬ THẨM ĐỊNH'),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
+            tooltip: 'Làm mới dữ liệu',
             onPressed: () => _fetchHistory(page: 1, isRefresh: true),
-            tooltip: 'Làm mới',
           ),
         ],
       ),
-      body: _buildBody(),
+      body: RefreshIndicator(
+        color: AppTheme.primaryGreen,
+        onRefresh: () => _fetchHistory(page: 1, isRefresh: true),
+        child: _buildBody(),
+      ),
     );
   }
 
@@ -113,9 +117,12 @@ class _PredictionHistoryScreenState extends State<PredictionHistoryScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(color: AppTheme.primaryNavy),
+            CircularProgressIndicator(color: AppTheme.primaryGreen),
             SizedBox(height: 14),
-            Text('Đang truy vấn PostgreSQL qua FastAPI...', style: TextStyle(color: Color(0xFF64748B))),
+            Text(
+              'Đang tải sổ phụ lịch sử từ PostgreSQL...',
+              style: TextStyle(color: AppTheme.bodyText, fontSize: 13),
+            ),
           ],
         ),
       );
@@ -128,21 +135,21 @@ class _PredictionHistoryScreenState extends State<PredictionHistoryScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.cloud_off, size: 54, color: AppTheme.riskHigh),
+              const Icon(Icons.cloud_off_outlined, color: AppTheme.riskHigh, size: 54),
               const SizedBox(height: 14),
               const Text(
-                'Không thể tải lịch sử dự báo',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                'Không thể tải dữ liệu lịch sử',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.headingNavy),
               ),
               const SizedBox(height: 8),
               Text(
                 _errorMessage!,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Color(0xFF64748B), fontSize: 13),
+                style: const TextStyle(color: AppTheme.bodyText, fontSize: 13),
               ),
               const SizedBox(height: 20),
               ElevatedButton.icon(
-                icon: const Icon(Icons.refresh),
+                icon: const Icon(Icons.refresh, size: 18),
                 label: const Text('Thử lại'),
                 onPressed: () => _fetchHistory(page: 1, isRefresh: true),
               ),
@@ -159,23 +166,24 @@ class _PredictionHistoryScreenState extends State<PredictionHistoryScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.history_toggle_off, size: 64, color: Color(0xFF94A3B8)),
-              const SizedBox(height: 14),
-              const Text(
-                'Chưa có bản ghi dự báo nào',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              Container(
+                padding: const EdgeInsets.all(18),
+                decoration: const BoxDecoration(
+                  color: AppTheme.primaryLight,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(Icons.assignment_outlined, size: 48, color: AppTheme.primaryGreen),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               const Text(
-                'Hãy tạo lượt dự báo mới để lưu hồ sơ vào cơ sở dữ liệu PostgreSQL.',
+                'Chưa có hồ sơ thẩm định nào',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.headingNavy),
+              ),
+              const SizedBox(height: 6),
+              const Text(
+                'Các hồ sơ sau khi thực hiện thẩm định thành công sẽ tự động lưu trữ tại đây.',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xFF64748B)),
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton.icon(
-                icon: const Icon(Icons.add),
-                label: const Text('Tạo dự báo ngay'),
-                onPressed: () => Navigator.pop(context),
+                style: TextStyle(fontSize: 13, color: AppTheme.bodyText),
               ),
             ],
           ),
@@ -183,70 +191,95 @@ class _PredictionHistoryScreenState extends State<PredictionHistoryScreen> {
       );
     }
 
-    return RefreshIndicator(
-      onRefresh: () => _fetchHistory(page: 1, isRefresh: true),
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            color: const Color(0xFFF1F5F9),
-            child: Row(
-              children: [
-                const Icon(Icons.storage, size: 16, color: Color(0xFF475569)),
-                const SizedBox(width: 8),
-                Text(
-                  'Tổng cộng $_totalRecords bản ghi trong credit_app.customer_predictions',
-                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Color(0xFF475569)),
+    return Column(
+      children: [
+        // Thanh thông tin tổng số lượng hồ sơ
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          decoration: const BoxDecoration(
+            color: AppTheme.primaryLight,
+            border: Border(bottom: BorderSide(color: AppTheme.cardBorder)),
+          ),
+          child: Row(
+            children: [
+              const Icon(Icons.storage_outlined, size: 16, color: AppTheme.primaryGreen),
+              const SizedBox(width: 8),
+              Text(
+                'Cơ sở dữ liệu: $_totalRecords hồ sơ đã ghi nhận',
+                style: const TextStyle(
+                  fontSize: 12.5,
+                  fontWeight: FontWeight.w700,
+                  color: AppTheme.primaryDark,
                 ),
-              ],
-            ),
+              ),
+              const Spacer(),
+              const Text(
+                'Mới nhất',
+                style: TextStyle(fontSize: 11.5, color: AppTheme.bodyText, fontWeight: FontWeight.w500),
+              ),
+            ],
           ),
-          Expanded(
-            child: ListView.separated(
-              controller: _scrollController,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              itemCount: _items.length + (_hasMore ? 1 : 0),
-              separatorBuilder: (context, index) => const SizedBox(height: 8),
-              itemBuilder: (context, index) {
-                if (index == _items.length) {
-                  return const Center(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    ),
-                  );
-                }
+        ),
 
-                final item = _items[index];
-                return _buildHistoryCard(item);
-              },
-            ),
+        // Danh sách hồ sơ lịch sử
+        Expanded(
+          child: ListView.separated(
+            controller: _scrollController,
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            itemCount: _items.length + (_hasMore ? 1 : 0),
+            separatorBuilder: (context, index) => const SizedBox(height: 8),
+            itemBuilder: (context, index) {
+              if (index == _items.length) {
+                return const Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16),
+                    child: SizedBox(
+                      width: 22,
+                      height: 22,
+                      child: CircularProgressIndicator(strokeWidth: 2, color: AppTheme.primaryGreen),
+                    ),
+                  ),
+                );
+              }
+
+              final item = _items[index];
+              return _buildHistoryCard(item);
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget _buildHistoryCard(PredictionHistoryItem item) {
-    final bool isDefault = item.predictionLabel == 'Default';
     final double probPercent = item.defaultProbability * 100;
+    final bool isDefault = item.defaultProbability >= 0.60;
 
-    Color badgeColor;
-    Color badgeBg;
-    if (item.riskLevel == 'High Risk') {
-      badgeColor = AppTheme.riskHigh;
-      badgeBg = AppTheme.riskHighBg;
-    } else if (item.riskLevel == 'Medium Risk') {
-      badgeColor = AppTheme.riskMedium;
-      badgeBg = AppTheme.riskMediumBg;
+    Color riskColor;
+    Color riskBg;
+    if (isDefault) {
+      riskColor = AppTheme.riskHigh;
+      riskBg = AppTheme.riskHighBg;
+    } else if (item.riskLevel.toLowerCase().contains('medium')) {
+      riskColor = AppTheme.riskMedium;
+      riskBg = AppTheme.riskMediumBg;
     } else {
-      badgeColor = AppTheme.riskLow;
-      badgeBg = AppTheme.riskLowBg;
+      riskColor = AppTheme.riskLow;
+      riskBg = AppTheme.riskLowBg;
     }
+
+    // Format thời gian hiển thị
+    String formattedTime = item.createdAt;
+    try {
+      final parsed = DateTime.parse(item.createdAt).toLocal();
+      formattedTime = DateFormat('dd/MM/yyyy HH:mm:ss').format(parsed);
+    } catch (_) {}
 
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(14),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -255,58 +288,52 @@ class _PredictionHistoryScreenState extends State<PredictionHistoryScreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                   decoration: BoxDecoration(
-                    color: AppTheme.primaryNavy.withValues(alpha: 0.08),
+                    color: AppTheme.backgroundLight,
                     borderRadius: BorderRadius.circular(6),
+                    border: Border.all(color: AppTheme.cardBorder),
                   ),
                   child: Text(
                     '#${item.id}',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: AppTheme.primaryNavy,
-                      fontSize: 13,
-                    ),
+                    style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppTheme.headingNavy),
                   ),
                 ),
                 const SizedBox(width: 8),
-                Text(
-                  item.createdAt,
-                  style: const TextStyle(fontSize: 12, color: Color(0xFF64748B)),
+                Expanded(
+                  child: Text(
+                    formattedTime,
+                    style: const TextStyle(fontSize: 11.5, color: AppTheme.textMuted),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-                const Spacer(),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                   decoration: BoxDecoration(
-                    color: badgeBg,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: badgeColor, width: 1),
+                    color: riskBg,
+                    borderRadius: BorderRadius.circular(6),
                   ),
                   child: Text(
-                    item.riskLevel,
+                    isDefault ? 'DEFAULT' : 'NON-DEFAULT',
                     style: TextStyle(
                       fontSize: 11,
-                      fontWeight: FontWeight.bold,
-                      color: badgeColor,
+                      fontWeight: FontWeight.w800,
+                      color: riskColor,
                     ),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 10),
+            const Divider(height: 16, color: AppTheme.dividerColor),
             Row(
               children: [
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Phân loại', style: TextStyle(fontSize: 11, color: Color(0xFF64748B))),
+                      const Text('Hạn mức (LIMIT_BAL)', style: TextStyle(fontSize: 11, color: AppTheme.bodyText)),
                       const SizedBox(height: 2),
                       Text(
-                        isDefault ? '⚠️ DEFAULT' : '✅ NON-DEFAULT',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: isDefault ? AppTheme.riskHigh : AppTheme.riskLow,
-                        ),
+                        _currencyFormat.format(item.limitBal),
+                        style: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w700, color: AppTheme.headingNavy),
                       ),
                     ],
                   ),
@@ -315,31 +342,29 @@ class _PredictionHistoryScreenState extends State<PredictionHistoryScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Xác suất vỡ nợ', style: TextStyle(fontSize: 11, color: Color(0xFF64748B))),
+                      const Text('Độ tuổi (AGE)', style: TextStyle(fontSize: 11, color: AppTheme.bodyText)),
                       const SizedBox(height: 2),
                       Text(
-                        '${probPercent.toStringAsFixed(2)}%',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: badgeColor,
-                        ),
+                        '${item.age} tuổi',
+                        style: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w600, color: AppTheme.headingNavy),
                       ),
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      const Text('Hạn mức / Tuổi', style: TextStyle(fontSize: 11, color: Color(0xFF64748B))),
-                      const SizedBox(height: 2),
-                      Text(
-                        '${_currencyFormat.format(item.limitBal)} | ${item.age}t',
-                        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    const Text('Xác suất vỡ nợ', style: TextStyle(fontSize: 11, color: AppTheme.bodyText)),
+                    const SizedBox(height: 2),
+                    Text(
+                      '${probPercent.toStringAsFixed(1)}%',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                        color: riskColor,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/customer_input.dart';
 import '../services/api_service.dart';
 import '../theme/app_theme.dart';
+import '../widgets/banking_components.dart';
 import 'prediction_result_screen.dart';
 
 class CustomerInputFormScreen extends StatefulWidget {
@@ -14,25 +15,35 @@ class CustomerInputFormScreen extends StatefulWidget {
 class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
   final _formKey = GlobalKey<FormState>();
 
-  // Text controllers for numerical fields
+  // Bộ điều khiển cho các trường số học
   late TextEditingController _limitBalCtrl;
   late TextEditingController _ageCtrl;
 
-  // Categorical fields
+  // Trường phân loại (Categorical)
   int _sex = 2; // 1: Nam, 2: Nữ
   int _education = 2; // 1: Sau ĐH, 2: ĐH, 3: THPT, 4: Khác
   int _marriage = 2; // 1: Đã kết hôn, 2: Độc thân, 3: Khác
 
-  // Repayment status 6 months (-2..8)
+  // Trạng thái thanh toán 6 tháng từ T9/2005 (PAY_0) đến T4/2005 (PAY_6)
   late List<int> _payStatus;
 
-  // Bill amounts 6 months
+  // Dư nợ hóa đơn 6 tháng (BILL_AMT1 .. BILL_AMT6)
   late List<TextEditingController> _billCtrls;
 
-  // Payment amounts 6 months
+  // Số tiền đã thanh toán 6 tháng (PAY_AMT1 .. PAY_AMT6)
   late List<TextEditingController> _payCtrls;
 
   bool _isSubmitting = false;
+
+  // Tên tháng tương ứng từ T9/2005 đến T4/2005
+  final List<String> _monthNames = const [
+    'Tháng 9/2005 (Kỳ gần nhất)',
+    'Tháng 8/2005',
+    'Tháng 7/2005',
+    'Tháng 6/2005',
+    'Tháng 5/2005',
+    'Tháng 4/2005 (Kỳ xa nhất)',
+  ];
 
   @override
   void initState() {
@@ -75,7 +86,7 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
     ];
   }
 
-  void _applyPreset(CustomerInput preset) {
+  void _applyPreset(CustomerInput preset, String presetName) {
     setState(() {
       _limitBalCtrl.text = preset.limitBal.toInt().toString();
       _ageCtrl.text = preset.age.toString();
@@ -108,9 +119,11 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
     });
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Đã nạp bộ dữ liệu mẫu thành công.'),
-        duration: Duration(seconds: 1),
+      SnackBar(
+        content: Text('Đã nạp hồ sơ mẫu: $presetName'),
+        duration: const Duration(seconds: 2),
+        backgroundColor: AppTheme.primaryGreen,
+        behavior: SnackBarBehavior.floating,
       ),
     );
   }
@@ -129,13 +142,14 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
   }
 
   Future<void> _submitForm() async {
-    if (_isSubmitting) return; // Prevent duplicate submission
+    if (_isSubmitting) return;
 
     if (!_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Vui lòng kiểm tra và sửa các trường dữ liệu chưa hợp lệ.'),
+          content: Text('Vui lòng kiểm tra và hoàn thiện các trường dữ liệu bắt buộc.'),
           backgroundColor: AppTheme.riskHigh,
+          behavior: SnackBarBehavior.floating,
         ),
       );
       return;
@@ -195,18 +209,22 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
         showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             title: const Row(
               children: [
-                Icon(Icons.error_outline, color: AppTheme.riskHigh),
+                Icon(Icons.error_outline, color: AppTheme.riskHigh, size: 24),
                 SizedBox(width: 8),
-                Text('Lỗi Dự Báo'),
+                Text('Lỗi Thẩm Định', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               ],
             ),
-            content: Text(e.toString()),
+            content: Text(
+              e.toString(),
+              style: const TextStyle(fontSize: 13, height: 1.4),
+            ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(ctx),
-                child: const Text('Đóng'),
+                child: const Text('Đóng', style: TextStyle(color: AppTheme.primaryGreen, fontWeight: FontWeight.bold)),
               ),
             ],
           ),
@@ -228,42 +246,59 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Presets bar
+              // Thanh chọn nhanh dữ liệu mẫu phong cách Ngân hàng
               _buildPresetsBar(),
 
-              const SizedBox(height: 14),
+              const SizedBox(height: 16),
 
-              // Section 1: Thông tin nhân khẩu & Hạn mức
-              _buildSectionHeader('1. Thông tin Định danh & Hạn mức', Icons.person_outline),
+              // Phân đoạn 1: Thông tin Định danh & Hạn mức
+              const SectionTitle(
+                title: '1. Thông tin Định danh & Hạn mức',
+                subtitle: 'Hạn mức tín dụng được cấp và thông tin nhân khẩu học cơ bản',
+                icon: Icons.badge_outlined,
+              ),
               _buildDemographicsCard(),
 
-              const SizedBox(height: 14),
+              const SizedBox(height: 16),
 
-              // Section 2: Lịch sử thanh toán (PAY_0 .. PAY_6)
-              _buildSectionHeader('2. Lịch sử Trạng thái Thanh toán (T9..T4)', Icons.payment),
+              // Phân đoạn 2: Lịch sử Trạng thái Thanh toán (T9..T4)
+              const SectionTitle(
+                title: '2. Lịch sử Trạng thái Trả nợ (6 tháng)',
+                subtitle: '-2: Không dùng, -1: Trả đủ, 0: Trả tối thiểu, 1-8: Chậm n tháng',
+                icon: Icons.history,
+              ),
               _buildPaymentStatusCard(),
 
-              const SizedBox(height: 14),
+              const SizedBox(height: 16),
 
-              // Section 3: Dư nợ hóa đơn (BILL_AMT1 .. BILL_AMT6)
-              _buildSectionHeader(r'3. Dư nợ Hóa đơn 6 tháng (NT$)', Icons.receipt_long),
+              // Phân đoạn 3: Dư nợ Hóa đơn 6 tháng (NT$)
+              const SectionTitle(
+                title: '3. Dư nợ Sao kê Hóa đơn (NT\$)',
+                subtitle: 'Số tiền nợ ghi nhận trong sao kê thẻ từ T9/2005 đến T4/2005',
+                icon: Icons.receipt_long_outlined,
+              ),
               _buildBillAmountsCard(),
 
-              const SizedBox(height: 14),
+              const SizedBox(height: 16),
 
-              // Section 4: Số tiền đã thanh toán (PAY_AMT1 .. PAY_AMT6)
-              _buildSectionHeader(r'4. Số tiền đã Thanh toán 6 tháng (NT$)', Icons.price_check),
+              // Phân đoạn 4: Số tiền đã thanh toán 6 tháng (NT$)
+              const SectionTitle(
+                title: '4. Số tiền Khách hàng đã Thanh toán (NT\$)',
+                subtitle: 'Số tiền thực tế khách hàng đã thanh toán trong kỳ sao kê trước',
+                icon: Icons.price_check_outlined,
+              ),
               _buildPaymentAmountsCard(),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 22),
 
-              // Submit Button
+              // Nút Submit Đánh giá Rủi ro phong cách Banking VCB
               ElevatedButton(
                 onPressed: _isSubmitting ? null : _submitForm,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.primaryNavy,
+                  backgroundColor: AppTheme.primaryGreen,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  elevation: 2,
                 ),
                 child: _isSubmitting
                     ? const Row(
@@ -275,15 +310,18 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
                             child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
                           ),
                           SizedBox(width: 12),
-                          Text('Đang phân tích Machine Learning...', style: TextStyle(fontSize: 16)),
+                          Text('Đang thẩm định qua XGBoost Tuned...', style: TextStyle(fontSize: 15)),
                         ],
                       )
                     : const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.bolt, color: Colors.amberAccent),
+                          Icon(Icons.verified_outlined, color: Colors.white, size: 20),
                           SizedBox(width: 8),
-                          Text('TIẾN HÀNH DỰ BÁO RỦI RO', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                          Text(
+                            'TIẾN HÀNH THẨM ĐỊNH RỦI RO',
+                            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800, letterSpacing: 0.5),
+                          ),
                         ],
                       ),
               ),
@@ -302,7 +340,7 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
       children: [
         const Text(
           'Dữ liệu mẫu thử nghiệm (Quick Presets):',
-          style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Color(0xFF64748B)),
+          style: TextStyle(fontSize: 12.5, fontWeight: FontWeight.w700, color: AppTheme.headingNavy),
         ),
         const SizedBox(height: 8),
         SingleChildScrollView(
@@ -310,40 +348,26 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
           child: Row(
             children: [
               ActionChip(
-                avatar: const Icon(Icons.person, size: 16, color: AppTheme.accentCyan),
-                label: const Text('Bình thường (Low Risk)'),
-                onPressed: () => _applyPreset(CustomerInput.presetNormal()),
+                avatar: const Icon(Icons.verified_user_outlined, size: 16, color: AppTheme.riskLow),
+                backgroundColor: AppTheme.riskLowBg,
+                label: const Text('Rủi ro thấp (<30%)', style: TextStyle(fontWeight: FontWeight.w700, color: AppTheme.riskLow, fontSize: 12)),
+                onPressed: () => _applyPreset(CustomerInput.presetLowRisk(), 'Rủi ro Thấp (Low Risk)'),
               ),
               const SizedBox(width: 8),
               ActionChip(
-                avatar: const Icon(Icons.warning_amber, size: 16, color: AppTheme.riskHigh),
-                label: const Text('Rủi ro cao (High Risk)'),
-                onPressed: () => _applyPreset(CustomerInput.presetHighRisk()),
+                avatar: const Icon(Icons.person_outline, size: 16, color: AppTheme.primaryGreen),
+                backgroundColor: AppTheme.primaryLight,
+                label: const Text('Bình thường (~12%)', style: TextStyle(fontWeight: FontWeight.w700, color: AppTheme.primaryGreen, fontSize: 12)),
+                onPressed: () => _applyPreset(CustomerInput.presetNormal(), 'Khách hàng Bình thường'),
               ),
               const SizedBox(width: 8),
               ActionChip(
-                avatar: const Icon(Icons.shield_outlined, size: 16, color: AppTheme.riskLow),
-                label: const Text('Rất an toàn (Low Risk)'),
-                onPressed: () => _applyPreset(CustomerInput.presetLowRisk()),
+                avatar: const Icon(Icons.warning_amber_rounded, size: 16, color: AppTheme.riskHigh),
+                backgroundColor: AppTheme.riskHighBg,
+                label: const Text('Rủi ro cao (>=60%)', style: TextStyle(fontWeight: FontWeight.w700, color: AppTheme.riskHigh, fontSize: 12)),
+                onPressed: () => _applyPreset(CustomerInput.presetHighRisk(), 'Rủi ro Cao (High Risk)'),
               ),
             ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildSectionHeader(String title, IconData icon) {
-    return Row(
-      children: [
-        Icon(icon, size: 18, color: AppTheme.secondaryBlue),
-        const SizedBox(width: 6),
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            color: AppTheme.primaryNavy,
           ),
         ),
       ],
@@ -353,88 +377,97 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
   Widget _buildDemographicsCard() {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(14),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
+            TextFormField(
+              controller: _limitBalCtrl,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: 'Hạn mức tín dụng được cấp (LIMIT_BAL) *',
+                helperText: 'Đơn vị: NT\$ (Tân Đài tệ). Ví dụ: 200,000 NT\$',
+                prefixIcon: Icon(Icons.credit_card, color: AppTheme.primaryGreen, size: 20),
+              ),
+              validator: (v) {
+                if (v == null || v.trim().isEmpty) return 'Bắt buộc nhập hạn mức';
+                final val = double.tryParse(v.trim());
+                if (val == null || val <= 0) return 'Hạn mức phải là số dương lớn hơn 0';
+                return null;
+              },
+            ),
+            const SizedBox(height: 14),
             Row(
               children: [
-                Expanded(
-                  flex: 3,
-                  child: TextFormField(
-                    controller: _limitBalCtrl,
-                    keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
-                      labelText: 'Hạn mức (LIMIT_BAL)',
-                      suffixText: 'NT\$',
-                    ),
-                    validator: (v) {
-                      if (v == null || v.isEmpty) return 'Bắt buộc';
-                      final val = double.tryParse(v);
-                      if (val == null || val <= 0) return '> 0';
-                      return null;
-                    },
-                  ),
-                ),
-                const SizedBox(width: 10),
                 Expanded(
                   flex: 2,
                   child: TextFormField(
                     controller: _ageCtrl,
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
-                      labelText: 'Tuổi (AGE)',
-                      suffixText: 'tuổi',
+                      labelText: 'Độ tuổi (AGE) *',
+                      helperText: 'Từ 18 đến 100 tuổi',
+                      prefixIcon: Icon(Icons.cake_outlined, color: AppTheme.primaryGreen, size: 20),
                     ),
                     validator: (v) {
-                      if (v == null || v.isEmpty) return 'Bắt buộc';
-                      final val = int.tryParse(v);
-                      if (val == null || val < 18 || val > 100) return '18-100';
+                      if (v == null || v.trim().isEmpty) return 'Nhập tuổi';
+                      final val = int.tryParse(v.trim());
+                      if (val == null || val < 18 || val > 100) return 'Từ 18-100';
                       return null;
+                    },
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  flex: 3,
+                  child: DropdownButtonFormField<int>(
+                    initialValue: _sex,
+                    decoration: const InputDecoration(
+                      labelText: 'Giới tính (SEX)',
+                      prefixIcon: Icon(Icons.people_outline, color: AppTheme.primaryGreen, size: 20),
+                    ),
+                    items: const [
+                      DropdownMenuItem(value: 1, child: Text('Nam (1)')),
+                      DropdownMenuItem(value: 2, child: Text('Nữ (2)')),
+                    ],
+                    onChanged: (val) {
+                      if (val != null) setState(() => _sex = val);
                     },
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 12),
-            Row(
-              children: [
-                Expanded(
-                  child: DropdownButtonFormField<int>(
-                    value: _sex,
-                    decoration: const InputDecoration(labelText: 'Giới tính (SEX)'),
-                    items: const [
-                      DropdownMenuItem(value: 1, child: Text('1 - Nam')),
-                      DropdownMenuItem(value: 2, child: Text('2 - Nữ')),
-                    ],
-                    onChanged: (v) => setState(() => _sex = v!),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: DropdownButtonFormField<int>(
-                    value: _marriage,
-                    decoration: const InputDecoration(labelText: 'Hôn nhân (MARRIAGE)'),
-                    items: const [
-                      DropdownMenuItem(value: 1, child: Text('1 - Đã kết hôn')),
-                      DropdownMenuItem(value: 2, child: Text('2 - Độc thân')),
-                      DropdownMenuItem(value: 3, child: Text('3 - Khác')),
-                    ],
-                    onChanged: (v) => setState(() => _marriage = v!),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 14),
             DropdownButtonFormField<int>(
-              value: _education,
-              decoration: const InputDecoration(labelText: 'Học vấn (EDUCATION)'),
+              initialValue: _education,
+              decoration: const InputDecoration(
+                labelText: 'Trình độ học vấn (EDUCATION)',
+                prefixIcon: Icon(Icons.school_outlined, color: AppTheme.primaryGreen, size: 20),
+              ),
               items: const [
-                DropdownMenuItem(value: 1, child: Text('1 - Sau đại học (Master / Ph.D)')),
+                DropdownMenuItem(value: 1, child: Text('1 - Sau Đại học (Graduate)')),
                 DropdownMenuItem(value: 2, child: Text('2 - Đại học (University)')),
                 DropdownMenuItem(value: 3, child: Text('3 - Trung học phổ thông (High School)')),
                 DropdownMenuItem(value: 4, child: Text('4 - Khác (Others)')),
               ],
-              onChanged: (v) => setState(() => _education = v!),
+              onChanged: (val) {
+                if (val != null) setState(() => _education = val);
+              },
+            ),
+            const SizedBox(height: 14),
+            DropdownButtonFormField<int>(
+              initialValue: _marriage,
+              decoration: const InputDecoration(
+                labelText: 'Tình trạng hôn nhân (MARRIAGE)',
+                prefixIcon: Icon(Icons.favorite_outline, color: AppTheme.primaryGreen, size: 20),
+              ),
+              items: const [
+                DropdownMenuItem(value: 1, child: Text('1 - Đã kết hôn (Married)')),
+                DropdownMenuItem(value: 2, child: Text('2 - Độc thân (Single)')),
+                DropdownMenuItem(value: 3, child: Text('3 - Khác (Others)')),
+              ],
+              onChanged: (val) {
+                if (val != null) setState(() => _marriage = val);
+              },
             ),
           ],
         ),
@@ -443,57 +476,64 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
   }
 
   Widget _buildPaymentStatusCard() {
-    final months = ['T9 (PAY_0)', 'T8 (PAY_2)', 'T7 (PAY_3)', 'T6 (PAY_4)', 'T5 (PAY_5)', 'T4 (PAY_6)'];
-
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(14),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Chú giải: -1: Đúng hạn, 0: Đã trả tối thiểu, 1..8: Trễ 1..8 tháng',
-              style: TextStyle(fontSize: 12, color: Color(0xFF64748B)),
-            ),
-            const SizedBox(height: 10),
             for (int i = 0; i < 6; i++) ...[
-              Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Text(
-                      months[i],
-                      style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child: DropdownButtonFormField<int>(
-                      value: _payStatus[i],
-                      isDense: true,
-                      decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 4,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            _monthNames[i],
+                            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: AppTheme.headingNavy),
+                          ),
+                          Text(
+                            'Trường PAY_${i == 0 ? 0 : i + 1}',
+                            style: const TextStyle(fontSize: 11, color: AppTheme.bodyText),
+                          ),
+                        ],
                       ),
-                      items: const [
-                        DropdownMenuItem(value: -2, child: Text('-2: Không dùng')),
-                        DropdownMenuItem(value: -1, child: Text('-1: Đúng hạn')),
-                        DropdownMenuItem(value: 0, child: Text(' 0: Dùng thẻ')),
-                        DropdownMenuItem(value: 1, child: Text(' 1: Trễ 1 tháng')),
-                        DropdownMenuItem(value: 2, child: Text(' 2: Trễ 2 tháng')),
-                        DropdownMenuItem(value: 3, child: Text(' 3: Trễ 3 tháng')),
-                        DropdownMenuItem(value: 4, child: Text(' 4: Trễ 4 tháng')),
-                        DropdownMenuItem(value: 5, child: Text(' 5: Trễ 5 tháng')),
-                        DropdownMenuItem(value: 6, child: Text(' 6: Trễ 6 tháng')),
-                        DropdownMenuItem(value: 7, child: Text(' 7: Trễ 7 tháng')),
-                        DropdownMenuItem(value: 8, child: Text(' 8: Trễ 8 tháng')),
-                      ],
-                      onChanged: (v) => setState(() => _payStatus[i] = v!),
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 8),
+                    Expanded(
+                      flex: 4,
+                      child: DropdownButtonFormField<int>(
+                        initialValue: _payStatus[i],
+                        isExpanded: true,
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                        ),
+                        items: const [
+                          DropdownMenuItem(value: -2, child: Text('-2: Không dùng')),
+                          DropdownMenuItem(value: -1, child: Text('-1: Trả đủ')),
+                          DropdownMenuItem(value: 0, child: Text('0: Trả tối thiểu')),
+                          DropdownMenuItem(value: 1, child: Text('1: Chậm 1 tháng')),
+                          DropdownMenuItem(value: 2, child: Text('2: Chậm 2 tháng')),
+                          DropdownMenuItem(value: 3, child: Text('3: Chậm 3 tháng')),
+                          DropdownMenuItem(value: 4, child: Text('4: Chậm 4 tháng')),
+                          DropdownMenuItem(value: 5, child: Text('5: Chậm 5 tháng')),
+                          DropdownMenuItem(value: 6, child: Text('6: Chậm 6 tháng')),
+                          DropdownMenuItem(value: 7, child: Text('7: Chậm 7 tháng')),
+                          DropdownMenuItem(value: 8, child: Text('8: Chậm >=8 tháng')),
+                        ],
+                        onChanged: (val) {
+                          if (val != null) setState(() => _payStatus[i] = val);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              if (i < 5) const SizedBox(height: 8),
+              if (i < 5) const Divider(height: 8, color: AppTheme.dividerColor),
             ],
           ],
         ),
@@ -502,52 +542,30 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
   }
 
   Widget _buildBillAmountsCard() {
-    final labels = ['T9 (BILL_AMT1)', 'T8 (BILL_AMT2)', 'T7 (BILL_AMT3)', 'T6 (BILL_AMT4)', 'T5 (BILL_AMT5)', 'T4 (BILL_AMT6)'];
-
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(14),
         child: Column(
           children: [
-            for (int i = 0; i < 6; i += 2) ...[
-              Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      controller: _billCtrls[i],
-                      keyboardType: const TextInputType.numberWithOptions(signed: true),
-                      decoration: InputDecoration(
-                        labelText: labels[i],
-                        suffixText: 'NT\$',
-                        isDense: true,
-                      ),
-                      validator: (v) {
-                        if (v == null || v.isEmpty) return 'Bắt buộc';
-                        if (double.tryParse(v) == null) return 'Phải là số';
-                        return null;
-                      },
-                    ),
+            for (int i = 0; i < 6; i++) ...[
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: TextFormField(
+                  controller: _billCtrls[i],
+                  keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
+                  decoration: InputDecoration(
+                    labelText: 'Dư nợ ${_monthNames[i]} (BILL_AMT${i + 1})',
+                    suffixText: 'NT\$',
+                    prefixIcon: const Icon(Icons.receipt, color: AppTheme.primaryGreen, size: 18),
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: TextFormField(
-                      controller: _billCtrls[i + 1],
-                      keyboardType: const TextInputType.numberWithOptions(signed: true),
-                      decoration: InputDecoration(
-                        labelText: labels[i + 1],
-                        suffixText: 'NT\$',
-                        isDense: true,
-                      ),
-                      validator: (v) {
-                        if (v == null || v.isEmpty) return 'Bắt buộc';
-                        if (double.tryParse(v) == null) return 'Phải là số';
-                        return null;
-                      },
-                    ),
-                  ),
-                ],
+                  validator: (v) {
+                    if (v == null || v.trim().isEmpty) return 'Bắt buộc nhập số tiền';
+                    if (double.tryParse(v.trim()) == null) return 'Phải là số hợp lệ';
+                    return null;
+                  },
+                ),
               ),
-              if (i < 4) const SizedBox(height: 10),
+              if (i < 5) const SizedBox(height: 6),
             ],
           ],
         ),
@@ -556,54 +574,31 @@ class _CustomerInputFormScreenState extends State<CustomerInputFormScreen> {
   }
 
   Widget _buildPaymentAmountsCard() {
-    final labels = ['T9 (PAY_AMT1)', 'T8 (PAY_AMT2)', 'T7 (PAY_AMT3)', 'T6 (PAY_AMT4)', 'T5 (PAY_AMT5)', 'T4 (PAY_AMT6)'];
-
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(14),
         child: Column(
           children: [
-            for (int i = 0; i < 6; i += 2) ...[
-              Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      controller: _payCtrls[i],
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        labelText: labels[i],
-                        suffixText: 'NT\$',
-                        isDense: true,
-                      ),
-                      validator: (v) {
-                        if (v == null || v.isEmpty) return 'Bắt buộc';
-                        final val = double.tryParse(v);
-                        if (val == null || val < 0) return '>= 0';
-                        return null;
-                      },
-                    ),
+            for (int i = 0; i < 6; i++) ...[
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: TextFormField(
+                  controller: _payCtrls[i],
+                  keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                  decoration: InputDecoration(
+                    labelText: 'Thanh toán ${_monthNames[i]} (PAY_AMT${i + 1})',
+                    suffixText: 'NT\$',
+                    prefixIcon: const Icon(Icons.payments_outlined, color: AppTheme.primaryGreen, size: 18),
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: TextFormField(
-                      controller: _payCtrls[i + 1],
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        labelText: labels[i + 1],
-                        suffixText: 'NT\$',
-                        isDense: true,
-                      ),
-                      validator: (v) {
-                        if (v == null || v.isEmpty) return 'Bắt buộc';
-                        final val = double.tryParse(v);
-                        if (val == null || val < 0) return '>= 0';
-                        return null;
-                      },
-                    ),
-                  ),
-                ],
+                  validator: (v) {
+                    if (v == null || v.trim().isEmpty) return 'Bắt buộc nhập số tiền';
+                    final val = double.tryParse(v.trim());
+                    if (val == null || val < 0) return 'Số tiền thanh toán phải >= 0';
+                    return null;
+                  },
+                ),
               ),
-              if (i < 4) const SizedBox(height: 10),
+              if (i < 5) const SizedBox(height: 6),
             ],
           ],
         ),

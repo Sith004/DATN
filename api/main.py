@@ -5,6 +5,7 @@ Main FastAPI application entrypoint for Credit Risk Assessment Mobile App.
 Runs alongside existing Streamlit app without interference.
 """
 
+import os
 import sys
 from pathlib import Path
 
@@ -33,10 +34,16 @@ app = FastAPI(
 )
 
 # ── CORS Middleware ──────────────────────────────────────────────────────────
-# Cho phép ứng dụng Flutter và các client trên mạng LAN truy cập an toàn
+# Cho phép ứng dụng Flutter (Mobile & Web Vercel) và các client truy cập an toàn
+cors_origins_env = os.getenv("CORS_ORIGINS", "*")
+if cors_origins_env == "*":
+    allowed_origins = ["*"]
+else:
+    allowed_origins = [o.strip() for o in cors_origins_env.split(",") if o.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -73,5 +80,7 @@ async def global_exception_handler(request: Request, exc: Exception):
 
 if __name__ == "__main__":
     import uvicorn
-    # Chạy trên 0.0.0.0 để điện thoại Android cùng mạng Wi-Fi có thể kết nối
-    uvicorn.run("api.main:app", host="0.0.0.0", port=8000, reload=True)
+    # Hỗ trợ cổng động $PORT cho các nền tảng Cloud (Render, Railway, Fly.io) và mặc định 8000
+    port = int(os.getenv("PORT", 8000))
+    reload = os.getenv("ENV", "development").lower() == "development"
+    uvicorn.run("api.main:app", host="0.0.0.0", port=port, reload=reload)

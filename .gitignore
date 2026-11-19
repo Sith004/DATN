@@ -39,3 +39,12 @@ Thumbs.db
 # Logs and temp files
 *.log
 *.tmp
+
+# Draft, backup, and temporary documents
+*BACKUP*
+*_BACKUP_*
+*REVISED*
+DCCT_*
+~$*.docx
+*.docx.tmp
+

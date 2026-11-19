@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/health_status.dart';
 import '../services/api_service.dart';
 import '../theme/app_theme.dart';
+import '../widgets/banking_components.dart';
 import 'customer_input_form_screen.dart';
 import 'prediction_history_screen.dart';
 import 'settings_screen.dart';
@@ -55,7 +56,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
         title: const Text('ĐÁNH GIÁ RỦI RO TÍN DỤNG'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings),
+            icon: const Icon(Icons.tune),
             tooltip: 'Cài đặt kết nối',
             onPressed: () async {
               await Navigator.push(
@@ -68,6 +69,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
         ],
       ),
       body: RefreshIndicator(
+        color: AppTheme.primaryGreen,
         onRefresh: _checkServerStatus,
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
@@ -75,27 +77,40 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // 1. Academic Header Banner
-              _buildAcademicHeader(),
+              // 1. Academic Header Banner phong cách ngân hàng (Không bao giờ tràn)
+              const BankingHeader(
+                title: 'ỨNG DỤNG MACHINE LEARNING TRONG DỰ BÁO RỦI RO TÍN DỤNG',
+                subtitle: 'Phân loại rủi ro vỡ nợ khách hàng thẻ tín dụng (Default Risk Scoring)',
+                studentName: 'Nguyễn Trọng Thể',
+                studentId: '1150080117',
+              ),
 
-              const SizedBox(height: 14),
+              const SizedBox(height: 16),
 
-              // 2. Server & Database Live Health Card
-              _buildConnectionStatusCard(),
+              // 2. Chức năng Nghiệp vụ Chính (VCB Primary Action Cards)
+              const SectionTitle(
+                title: 'Nghiệp vụ Thẩm định Tín dụng',
+                subtitle: 'Hệ sinh thái Hỗ trợ ra Quyết định (Decision Support System)',
+              ),
+              const SizedBox(height: 4),
 
-              const SizedBox(height: 14),
-
-              // 3. Model Verified Metrics Card
-              _buildModelMetricsCard(),
-
-              const SizedBox(height: 18),
-
-              // 4. Primary Actions
-              _buildActionCard(
-                title: 'Dự báo Rủi ro Khách hàng',
-                subtitle: 'Nhập 23 thuộc tính để tính xác suất vỡ nợ qua mô hình XGBoost',
+              BankingActionCard(
+                title: 'Đánh giá Rủi ro Khách hàng',
+                subtitle: 'Nhập 23 thuộc tính tài chính & nhân khẩu học để tính xác suất vỡ nợ qua XGBoost',
                 icon: Icons.analytics_outlined,
-                color: AppTheme.accentCyan,
+                iconColor: AppTheme.primaryGreen,
+                iconBgColor: AppTheme.primaryLight,
+                trailingBadge: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+                  decoration: BoxDecoration(
+                    color: AppTheme.primaryGreen,
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: const Text(
+                    'Mô hình 0.60',
+                    style: TextStyle(color: Colors.white, fontSize: 10.5, fontWeight: FontWeight.bold),
+                  ),
+                ),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -106,13 +121,14 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                 },
               ),
 
-              const SizedBox(height: 12),
+              const SizedBox(height: 10),
 
-              _buildActionCard(
-                title: 'Lịch sử Dự báo (PostgreSQL)',
-                subtitle: 'Xem các hồ sơ dự báo được lưu trữ an toàn trong cơ sở dữ liệu',
-                icon: Icons.history,
-                color: AppTheme.primaryNavy,
+              BankingActionCard(
+                title: 'Sổ phụ Lịch sử Thẩm định',
+                subtitle: 'Truy xuất hồ sơ dự báo được lưu trữ an toàn trong PostgreSQL 16',
+                icon: Icons.history_edu,
+                iconColor: AppTheme.headingNavy,
+                iconBgColor: const Color(0xFFEAEFF4),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -123,18 +139,159 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                 },
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 18),
 
-              // 5. Academic Disclaimer Footer
+              // 3. Thông số Mô hình Tuyển chọn (Chương 3)
+              const SectionTitle(
+                title: 'Mô hình Tuyển chọn (XGBoost Tuned)',
+                subtitle: 'Huấn luyện trên 23,972 mẫu & kiểm định độc lập trên 5,993 mẫu',
+                icon: Icons.verified_outlined,
+              ),
+              const SizedBox(height: 4),
+
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(14),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          _buildMetricBox('Mô hình', 'XGBoost Tuned', Icons.psychology_outlined),
+                          const SizedBox(width: 8),
+                          _buildMetricBox('Ngưỡng (Threshold)', '0.60 (Tối ưu)', Icons.tune),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          _buildMetricBox('ROC-AUC', '0.7769', null),
+                          const SizedBox(width: 8),
+                          _buildMetricBox('PR-AUC', '0.5620', null),
+                          const SizedBox(width: 8),
+                          _buildMetricBox('F1-Score', '0.5409', null),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 18),
+
+              // 4. Trạng thái Hệ thống Kết nối (Khu vực thông tin phụ - Chống tràn 100%)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Expanded(
+                    child: SectionTitle(
+                      title: 'Trạng thái Hạ tầng Kết nối',
+                      subtitle: 'FastAPI REST, ML Pipeline & PostgreSQL',
+                      icon: Icons.dns_outlined,
+                    ),
+                  ),
+                  if (_isLoadingHealth)
+                    const SizedBox(
+                      width: 18,
+                      height: 18,
+                      child: CircularProgressIndicator(strokeWidth: 2, color: AppTheme.primaryGreen),
+                    )
+                  else
+                    IconButton(
+                      icon: const Icon(Icons.refresh, size: 20, color: AppTheme.primaryGreen),
+                      onPressed: _checkServerStatus,
+                      tooltip: 'Kiểm tra kết nối lại',
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 4),
+
+              if (_healthStatus != null) ...[
+                SystemStatusTile(
+                  title: 'FastAPI Backend Engine',
+                  statusText: 'Hoạt động bình thường (v${_healthStatus!.apiVersion})',
+                  isOnline: _healthStatus!.isHealthy,
+                  icon: Icons.api,
+                ),
+                const SizedBox(height: 6),
+                SystemStatusTile(
+                  title: 'XGBoost Model Pipeline',
+                  statusText: _healthStatus!.modelReady ? 'Đã tải mô hình (Ngưỡng 0.60)' : 'Chưa tải mô hình',
+                  isOnline: _healthStatus!.modelReady,
+                  icon: Icons.memory,
+                ),
+                const SizedBox(height: 6),
+                SystemStatusTile(
+                  title: 'Cơ sở dữ liệu PostgreSQL',
+                  statusText: _healthStatus!.databaseConnected
+                      ? 'Đã kết nối (credit_app schema)'
+                      : 'Mất kết nối (Chế độ Graceful)',
+                  isOnline: _healthStatus!.databaseConnected,
+                  icon: Icons.storage,
+                ),
+              ] else if (_errorMessage != null) ...[
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: AppTheme.riskHighBg,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: AppTheme.riskHigh.withValues(alpha: 0.3)),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.cloud_off, color: AppTheme.riskHigh, size: 22),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Không thể kết nối máy chủ FastAPI',
+                              style: TextStyle(
+                                color: AppTheme.riskHigh,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 13,
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              _errorMessage!,
+                              style: const TextStyle(color: AppTheme.bodyText, fontSize: 11.5),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ] else ...[
+                const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(12),
+                    child: Text(
+                      'Đang kiểm tra kết nối tới máy chủ...',
+                      style: TextStyle(color: AppTheme.bodyText, fontSize: 13),
+                    ),
+                  ),
+                ),
+              ],
+
+              const SizedBox(height: 22),
+
+              // 5. Academic Footer
               Center(
                 child: Text(
-                  'Hệ thống thử nghiệm phục vụ Đồ án Tốt nghiệp Đại học\n'
-                  'Khoa CNTT — Trường ĐH Tài nguyên & Môi trường TP.HCM',
+                  'Khóa luận Tốt nghiệp Đại học — Ngành Công nghệ Thông tin\n'
+                  'Trường ĐH Tài nguyên & Môi trường TP.HCM (HCMUNRE)\n'
+                  'Giảng viên hướng dẫn: TS. Dương Thị Thúy Nga',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.grey.shade600,
-                    height: 1.4,
+                  style: const TextStyle(
+                    fontSize: 11.5,
+                    color: AppTheme.bodyText,
+                    height: 1.45,
                   ),
                 ),
               ),
@@ -146,310 +303,51 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
     );
   }
 
-  Widget _buildAcademicHeader() {
-    return Container(
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [AppTheme.primaryNavy, Color(0xFF2D6A9F)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: AppTheme.primaryNavy.withValues(alpha: 0.25),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.15),
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(Icons.school, color: Colors.white, size: 24),
-              ),
-              const SizedBox(width: 12),
-              const Expanded(
-                child: Text(
-                  'KHÓA LUẬN TỐT NGHIỆP',
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 1.0,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          const Text(
-            'ỨNG DỤNG MACHINE LEARNING TRONG DỰ BÁO RỦI RO TÍN DỤNG',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              height: 1.3,
-            ),
-          ),
-          const Divider(color: Colors.white24, height: 20),
-          Row(
-            children: [
-              const Icon(Icons.person, color: Colors.white70, size: 16),
-              const SizedBox(width: 6),
-              const Text(
-                'Sinh viên: Nguyễn Trọng Thể',
-                style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500),
-              ),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: const Text(
-                  'MSSV: 1150080117',
-                  style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildConnectionStatusCard() {
-    bool isConnected = _healthStatus?.isHealthy ?? false;
-    Color statusColor = isConnected ? AppTheme.riskLow : AppTheme.riskHigh;
-
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Icon(
-                  isConnected ? Icons.cloud_done : Icons.cloud_off,
-                  color: statusColor,
-                  size: 22,
-                ),
-                const SizedBox(width: 10),
-                const Text(
-                  'Trạng thái Hệ thống Backend',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                ),
-                const Spacer(),
-                if (_isLoadingHealth)
-                  const SizedBox(
-                    width: 16,
-                    height: 16,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
-                else
-                  IconButton(
-                    icon: const Icon(Icons.refresh, size: 20),
-                    onPressed: _checkServerStatus,
-                    tooltip: 'Kiểm tra lại',
-                    padding: EdgeInsets.zero,
-                    constraints: const BoxConstraints(),
-                  ),
-              ],
-            ),
-            const SizedBox(height: 12),
-            if (_healthStatus != null) ...[
-              _buildStatusRow(
-                'FastAPI Server',
-                'Hoạt động (v${_healthStatus!.apiVersion})',
-                AppTheme.riskLow,
-              ),
-              const SizedBox(height: 6),
-              _buildStatusRow(
-                'Mô hình XGBoost',
-                _healthStatus!.modelReady ? 'Đã tải thành công' : 'Chưa tải',
-                _healthStatus!.modelReady ? AppTheme.riskLow : AppTheme.riskHigh,
-              ),
-              const SizedBox(height: 6),
-              _buildStatusRow(
-                'Cơ sở dữ liệu PostgreSQL',
-                _healthStatus!.databaseConnected ? 'Đã kết nối an toàn (Port 15432)' : 'Mất kết nối',
-                _healthStatus!.databaseConnected ? AppTheme.riskLow : AppTheme.riskMedium,
-              ),
-            ] else if (_errorMessage != null) ...[
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: AppTheme.riskHighBg,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Row(
-                  children: [
-                    const Icon(Icons.warning, color: AppTheme.riskHigh, size: 20),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        _errorMessage!,
-                        style: const TextStyle(color: AppTheme.riskHigh, fontSize: 13),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ] else ...[
-              const Text('Đang kiểm tra kết nối...', style: TextStyle(color: Colors.grey)),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildStatusRow(String label, String value, Color color) {
-    return Row(
-      children: [
-        Container(
-          width: 8,
-          height: 8,
-          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-        ),
-        const SizedBox(width: 8),
-        Text(label, style: const TextStyle(fontSize: 13, color: Color(0xFF64748B))),
-        const Spacer(),
-        Text(
-          value,
-          style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: color),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildModelMetricsCard() {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Row(
-              children: [
-                Icon(Icons.verified, color: AppTheme.primaryNavy, size: 20),
-                SizedBox(width: 8),
-                Text(
-                  'Thông số Mô hình Tuyển chọn (Week 8)',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            const SizedBox(height: 12),
-            Row(
-              children: [
-                _buildMetricBox('Mô hình', 'XGBoost Tuned'),
-                const SizedBox(width: 8),
-                _buildMetricBox('Ngưỡng (Threshold)', '0.60'),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                _buildMetricBox('ROC-AUC', '0.7769'),
-                const SizedBox(width: 8),
-                _buildMetricBox('PR-AUC', '0.5620'),
-                const SizedBox(width: 8),
-                _buildMetricBox('F1-Score', '0.5409'),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildMetricBox(String title, String value) {
+  Widget _buildMetricBox(String title, String value, IconData? icon) {
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
         decoration: BoxDecoration(
-          color: const Color(0xFFF1F5F9),
+          color: AppTheme.backgroundLight,
           borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: AppTheme.cardBorder, width: 0.8),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              title,
-              style: const TextStyle(fontSize: 11, color: Color(0xFF64748B)),
-              textAlign: TextAlign.center,
+            Row(
+              children: [
+                if (icon != null) ...[
+                  Icon(icon, size: 13, color: AppTheme.primaryGreen),
+                  const SizedBox(width: 4),
+                ],
+                Expanded(
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 10.5,
+                      color: AppTheme.bodyText,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 3),
             Text(
               value,
               style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: AppTheme.primaryNavy,
+                fontSize: 13,
+                fontWeight: FontWeight.w800,
+                color: AppTheme.headingNavy,
               ),
-              textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildActionCard({
-    required String title,
-    required String subtitle,
-    required IconData icon,
-    required Color color,
-    required VoidCallback onTap,
-  }) {
-    return Card(
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(14),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: color.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Icon(icon, color: color, size: 28),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      subtitle,
-                      style: const TextStyle(fontSize: 13, color: Color(0xFF64748B)),
-                    ),
-                  ],
-                ),
-              ),
-              const Icon(Icons.arrow_forward_ios, size: 16, color: Color(0xFF94A3B8)),
-            ],
-          ),
         ),
       ),
     );
