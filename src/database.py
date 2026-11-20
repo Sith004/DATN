@@ -36,7 +36,7 @@ def get_db_connection():
         # Chuẩn hóa tiền tố postgres:// thành postgresql:// cho psycopg2
         if db_url.startswith("postgres://"):
             db_url = db_url.replace("postgres://", "postgresql://", 1)
-        connect_timeout = int(os.getenv("DB_CONNECT_TIMEOUT", "5"))
+        connect_timeout = int(os.getenv("DB_CONNECT_TIMEOUT", "2"))
         sslmode = os.getenv("DB_SSLMODE", "require")
         # Nếu URI đã có sslmode, không truyền đè
         if "sslmode=" in db_url.lower():
@@ -50,7 +50,7 @@ def get_db_connection():
         dbname=os.getenv("DB_NAME", "credit_risk_db"),
         user=os.getenv("DB_USER", "app_streamlit"),
         password=os.getenv("DB_PASSWORD", ""),
-        connect_timeout=int(os.getenv("DB_CONNECT_TIMEOUT", "3")),
+        connect_timeout=int(os.getenv("DB_CONNECT_TIMEOUT", "2")),
         sslmode=os.getenv("DB_SSLMODE", "prefer"),
     )
 

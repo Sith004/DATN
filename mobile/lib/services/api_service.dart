@@ -20,8 +20,8 @@ class ApiException implements Exception {
 }
 
 class ApiService {
-  static const Duration _defaultTimeout = Duration(seconds: 8);
-  static const Duration _healthTimeout = Duration(seconds: 4);
+  static const Duration _defaultTimeout = Duration(seconds: 20);
+  static const Duration _healthTimeout = Duration(seconds: 15);
 
   /// Kiểm tra trạng thái máy chủ FastAPI, ML Model và PostgreSQL
   static Future<HealthStatus> checkHealth() async {

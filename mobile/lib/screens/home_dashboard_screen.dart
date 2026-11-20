@@ -56,8 +56,8 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
         title: const Text('ĐÁNH GIÁ RỦI RO TÍN DỤNG'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.tune),
-            tooltip: 'Cài đặt kết nối',
+            icon: const Icon(Icons.settings),
+            tooltip: 'Cài đặt kết nối máy chủ',
             onPressed: () async {
               await Navigator.push(
                 context,
@@ -238,31 +238,57 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(color: AppTheme.riskHigh.withValues(alpha: 0.3)),
                   ),
-                  child: Row(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const Icon(Icons.cloud_off, color: AppTheme.riskHigh, size: 22),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Không thể kết nối máy chủ FastAPI',
-                              style: TextStyle(
-                                color: AppTheme.riskHigh,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 13,
-                              ),
+                      Row(
+                        children: [
+                          const Icon(Icons.cloud_off, color: AppTheme.riskHigh, size: 22),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Không thể kết nối máy chủ FastAPI',
+                                  style: TextStyle(
+                                    color: AppTheme.riskHigh,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                                const SizedBox(height: 2),
+                                Text(
+                                  _errorMessage!,
+                                  style: const TextStyle(color: AppTheme.bodyText, fontSize: 11.5),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
                             ),
-                            const SizedBox(height: 2),
-                            Text(
-                              _errorMessage!,
-                              style: const TextStyle(color: AppTheme.bodyText, fontSize: 11.5),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      OutlinedButton.icon(
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: AppTheme.riskHigh,
+                          side: const BorderSide(color: AppTheme.riskHigh),
+                          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+                          visualDensity: VisualDensity.compact,
                         ),
+                        icon: const Icon(Icons.settings, size: 16),
+                        label: const Text(
+                          'Mở Cài đặt API Base URL',
+                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                        ),
+                        onPressed: () async {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => const SettingsScreen()),
+                          );
+                          _checkServerStatus();
+                        },
                       ),
                     ],
                   ),
